@@ -1,321 +1,153 @@
-# Posts table
-posts = Table('Posts', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('PostTypeId', Integer),
-    Column('AcceptedAnswerId', Integer),
-    Column('ParentId', Integer),
-    Column('CreationDate', DateTime),
-    Column('DeletionDate', DateTime),
-    Column('Score', Integer),
-    Column('ViewCount', Integer),
-    Column('Body', String),
-    Column('OwnerUserId', Integer),
-    Column('OwnerDisplayName', String),
-    Column('LastEditorUserId', Integer),
-    Column('LastEditorDisplayName', String),
-    Column('LastEditDate', DateTime),
-    Column('LastActivityDate', DateTime),
-    Column('Title', String),
-    Column('Tags', String),
-    Column('AnswerCount', Integer),
-    Column('CommentCount', Integer),
-    Column('FavoriteCount', Integer),
-    Column('ClosedDate', DateTime),
-    Column('CommunityOwnedDate', DateTime),
-    Column('ContentLicense', String)
-)
+CREATE TABLE PostNoticeTypes (
+  Id int PRIMARY KEY,
+  ClassId tinyint,
+  Name nvarchar(80),
+  Body nvarchar(max),
+  IsHidden bit,
+  Predefined bit,
+  PostNoticeDurationId int
+);
 
-# Users table
-users = Table('Users', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('Reputation', Integer),
-    Column('CreationDate', DateTime),
-    Column('DisplayName', String),
-    Column('LastAccessDate', DateTime),
-    Column('WebsiteUrl', String),
-    Column('Location', String),
-    Column('AboutMe', String),
-    Column('Views', Integer),
-    Column('UpVotes', Integer),
-    Column('DownVotes', Integer),
-    Column('ProfileImageUrl', String),
-    Column('EmailHash', String),
-    Column('AccountId', Integer)
-)
+CREATE TABLE PostsWithDeleted (
+  Id int PRIMARY KEY,
+  PostTypeId tinyint,
+  AcceptedAnswerId int,
+  ParentId int,
+  CreationDate datetime,
+  DeletionDate datetime,
+  Score int,
+  ViewCount int,
+  Body nvarchar(max),
+  OwnerUserId int,
+  OwnerDisplayName nvarchar(40),
+  LastEditorUserId int,
+  LastEditorDisplayName nvarchar(40),
+  LastEditDate datetime,
+  LastActivityDate datetime,
+  Title nvarchar(250),
+  Tags nvarchar(250),
+  AnswerCount int,
+  CommentCount int,
+  FavoriteCount int,
+  ClosedDate datetime,
+  CommunityOwnedDate datetime,
+  ContentLicense varchar(12)
+);
 
-# Comments table
-comments = Table('Comments', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('PostId', Integer),
-    Column('Score', Integer),
-    Column('Text', String),
-    Column('CreationDate', DateTime),
-    Column('UserDisplayName', String),
-    Column('UserId', Integer),
-    Column('ContentLicense', String)
-)
+CREATE TABLE PostTags (
+  PostId int,
+  TagId int,
+  PRIMARY KEY (PostId, TagId)
+);
 
-# Badges table
-badges = Table('Badges', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('UserId', Integer),
-    Column('Name', String),
-    Column('Date', DateTime),
-    Column('Class', SmallInteger),
-    Column('TagBased', Boolean)
-)
+CREATE TABLE PostTypes (
+  Id tinyint PRIMARY KEY,
+  Name nvarchar(50)
+);
 
-# CloseAsOffTopicReasonTypes table
-close_as_off_topic_reason_types = Table('CloseAsOffTopicReasonTypes', metadata,
-    Column('Id', SmallInteger, primary_key=True),
-    Column('IsUniversal', Boolean),
-    Column('InputTitle', String(100)),
-    Column('MarkdownInputGuidance', String(500)),
-    Column('MarkdownPostOwnerGuidance', String(500)),
-    Column('MarkdownPublicGuidance', String(500)),
-    Column('MarkdownConcensusDescription', String(500)),
-    Column('CreationDate', DateTime),
-    Column('CreationModeratorId', Integer),
-    Column('ApprovalDate', DateTime),
-    Column('ApprovalModeratorId', Integer),
-    Column('DeactivationDate', DateTime),
-    Column('DeactivationModeratorId', Integer)
-)
+CREATE TABLE ReviewRejectionReasons (
+  Id tinyint PRIMARY KEY,
+  Name nvarchar(100),
+  Description nvarchar(300),
+  PostTypeId tinyint
+);
 
-# CloseReasonTypes table
-close_reason_types = Table('CloseReasonTypes', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('Name', String(200)),
-    Column('Description', String(500))
-)
+CREATE TABLE ReviewTaskResults (
+  Id int PRIMARY KEY,
+  ReviewTaskId int,
+  ReviewTaskResultTypeId tinyint,
+  CreationDate date,
+  RejectionReasonId tinyint,
+  Comment nvarchar(400)
+);
 
-# FlagTypes table
-flag_types = Table('FlagTypes', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('Name', String(50)),
-    Column('Description', String(500))
-)
+CREATE TABLE ReviewTaskResultTypes (
+  Id tinyint PRIMARY KEY,
+  Name nvarchar(100),
+  Description nvarchar(300)
+);
 
-# PendingFlags table
-pending_flags = Table('PendingFlags', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('FlagTypeId', Integer),
-    Column('PostId', Integer),
-    Column('CreationDate', Date),
-    Column('CloseReasonTypeId', Integer),
-    Column('CloseAsOffTopicReasonTypeId', SmallInteger),
-    Column('DuplicateOfQuestionId', Integer),
-    Column('BelongsOnBaseHostAddress', String(100))
-)
+CREATE TABLE ReviewTasks (
+  Id int PRIMARY KEY,
+  ReviewTaskTypeId tinyint,
+  CreationDate date,
+  DeletionDate date,
+  ReviewTaskStateId tinyint,
+  PostId int,
+  SuggestedEditId int,
+  CompletedByReviewTaskId int
+);
 
-# PostFeedback table
-post_feedback = Table('PostFeedback', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('PostId', Integer),
-    Column('IsAnonymous', Boolean),
-    Column('VoteTypeId', Integer),
-    Column('CreationDate', DateTime)
-)
+CREATE TABLE ReviewTaskStates (
+  Id tinyint PRIMARY KEY,
+  Name nvarchar(50),
+  Description nvarchar(300)
+);
 
-# PostHistory table
-post_history = Table('PostHistory', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('PostHistoryTypeId', Integer),
-    Column('PostId', Integer),
-    Column('RevisionGUID', String(length=36)),
-    Column('CreationDate', DateTime),
-    Column('UserId', Integer),
-    Column('UserDisplayName', String(40)),
-    Column('Comment', String(400)),
-    Column('Text', String),
-    Column('ContentLicense', String(12))
-)
+CREATE TABLE ReviewTaskTypes (
+  Id tinyint PRIMARY KEY,
+  Name nvarchar(50),
+  Description nvarchar(300)
+);
 
-# PostHistoryTypes table
-post_history_types = Table('PostHistoryTypes', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('Name', String(50))
-)
+CREATE TABLE SuggestedEdits (
+  Id int PRIMARY KEY,
+  PostId int,
+  CreationDate datetime,
+  ApprovalDate datetime,
+  RejectionDate datetime,
+  OwnerUserId int,
+  Comment nvarchar(800),
+  Text nvarchar(max),
+  Title nvarchar(250),
+  Tags nvarchar(250),
+  RevisionGUID uniqueidentifier
+);
 
-# PostLinks table
-post_links = Table('PostLinks', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('CreationDate', DateTime),
-    Column('PostId', Integer),
-    Column('RelatedPostId', Integer),
-    Column('LinkTypeId', Integer)
-)
-# PostNotices table
-post_notices = Table('PostNotices', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('PostId', Integer),
-    Column('PostNoticeTypeId', Integer),
-    Column('CreationDate', DateTime),
-    Column('DeletionDate', DateTime),
-    Column('ExpiryDate', DateTime),
-    Column('Body', String),
-    Column('OwnerUserId', Integer),
-    Column('DeletionUserId', Integer)
-)
+CREATE TABLE SuggestedEditVotes (
+  Id int PRIMARY KEY,
+  SuggestedEditId int,
+  UserId int,
+  VoteTypeId tinyint,
+  CreationDate datetime,
+  TargetUserId int,
+  TargetRepChange int
+);
 
-# PostNoticeTypes table
-post_notice_types = Table('PostNoticeTypes', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('ClassId', Integer),
-    Column('Name', String(80)),
-    Column('Body', String),
-    Column('IsHidden', Boolean),
-    Column('Predefined', Boolean),
-    Column('PostNoticeDurationId', Integer)
-)
+CREATE TABLE Tags (
+  Id int PRIMARY KEY,
+  TagName nvarchar(35),
+  Count int,
+  ExcerptPostId int,
+  WikiPostId int,
+  IsModeratorOnly bit,
+  IsRequired bit
+);
 
-# PostsWithDeleted table
-posts_with_deleted = Table('PostsWithDeleted', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('PostTypeId', Integer),
-    Column('AcceptedAnswerId', Integer),
-    Column('ParentId', Integer),
-    Column('CreationDate', DateTime),
-    Column('DeletionDate', DateTime),
-    Column('Score', Integer),
-    Column('ViewCount', Integer),
-    Column('Body', String),
-    Column('OwnerUserId', Integer),
-    Column('OwnerDisplayName', String(40)),
-    Column('LastEditorUserId', Integer),
-    Column('LastEditorDisplayName', String(40)),
-    Column('LastEditDate', DateTime),
-    Column('LastActivityDate', DateTime),
-    Column('Title', String(250)),
-    Column('Tags', String(250)),
-    Column('AnswerCount', Integer),
-    Column('CommentCount', Integer),
-    Column('FavoriteCount', Integer),
-    Column('ClosedDate', DateTime),
-    Column('CommunityOwnedDate', DateTime),
-    Column('ContentLicense', String(12))
-)
+CREATE TABLE TagSynonyms (
+  Id int PRIMARY KEY,
+  SourceTagName nvarchar(35),
+  TargetTagName nvarchar(35),
+  CreationDate datetime,
+  OwnerUserId int,
+  AutoRenameCount int,
+  LastAutoRename datetime,
+  Score int,
+  ApprovedByUserId int,
+  ApprovalDate datetime
+);
 
-# PostTags table
-post_tags = Table('PostTags', metadata,
-    Column('PostId', Integer, primary_key=True),
-    Column('TagId', Integer, primary_key=True)
-)
+CREATE TABLE Votes (
+  Id int PRIMARY KEY,
+  PostId int,
+  VoteTypeId tinyint,
+  UserId int,
+  CreationDate datetime,
+  BountyAmount int
+);
 
-# PostTypes table
-post_types = Table('PostTypes', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('Name', String(50))
-)
+CREATE TABLE VoteTypes (
+  Id tinyint PRIMARY KEY,
+  Name nvarchar(50)
+);
 
-# ReviewRejectionReasons table
-review_rejection_reasons = Table('ReviewRejectionReasons', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('Name', String(100)),
-    Column('Description', String(300)),
-    Column('PostTypeId', Integer)
-)
-# ReviewTaskResults table
-review_task_results = Table('ReviewTaskResults', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('ReviewTaskId', Integer),
-    Column('ReviewTaskResultTypeId', Integer),
-    Column('CreationDate', Date),
-    Column('RejectionReasonId', Integer),
-    Column('Comment', String(400))
-)
-
-# ReviewTaskResultTypes table
-review_task_result_types = Table('ReviewTaskResultTypes', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('Name', String(100)),
-    Column('Description', String(300))
-)
-
-# ReviewTasks table
-review_tasks = Table('ReviewTasks', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('ReviewTaskTypeId', Integer),
-    Column('CreationDate', Date),
-    Column('DeletionDate', Date),
-    Column('ReviewTaskStateId', Integer),
-    Column('PostId', Integer),
-    Column('SuggestedEditId', Integer),
-    Column('CompletedByReviewTaskId', Integer)
-)
-
-# ReviewTaskStates table
-review_task_states = Table('ReviewTaskStates', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('Name', String(50)),
-    Column('Description', String(300))
-)
-
-# ReviewTaskTypes table
-review_task_types = Table('ReviewTaskTypes', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('Name', String(50)),
-    Column('Description', String(300))
-)
-
-# SuggestedEdits table
-suggested_edits = Table('SuggestedEdits', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('PostId', Integer),
-    Column('CreationDate', DateTime),
-    Column('ApprovalDate', DateTime),
-    Column('RejectionDate', DateTime),
-    Column('OwnerUserId', Integer),
-    Column('Comment', String(800)),
-    Column('Text', String),
-    Column('Title', String(250)),
-    Column('Tags', String(250)),
-    Column('RevisionGUID', String(length=36))
-)
-
-# SuggestedEditVotes table
-suggested_edit_votes = Table('SuggestedEditVotes', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('SuggestedEditId', Integer),
-    Column('UserId', Integer),
-    Column('VoteTypeId', Integer),
-    Column('CreationDate', DateTime),
-    Column('TargetUserId', Integer),
-    Column('TargetRepChange', Integer)
-)
-
-# Tags table
-tags = Table('Tags', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('TagName', String(35)),
-    Column('Count', Integer),
-    Column('ExcerptPostId', Integer),
-    Column('WikiPostId', Integer),
-    Column('IsModeratorOnly', Boolean),
-    Column('IsRequired', Boolean)
-)
-
-# TagSynonyms table
-tag_synonyms = Table('TagSynonyms', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('SourceTagName', String(35)),
-    Column('TargetTagName', String(35)),
-    Column('CreationDate', DateTime),
-    Column('OwnerUserId', Integer),
-    Column('AutoRenameCount', Integer),
-    Column('LastAutoRename', DateTime),
-    Column('Score', Integer),
-    Column('ApprovedByUserId', Integer),
-    Column('ApprovalDate', DateTime)
-)
-
-# Votes table
-votes = Table('Votes', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('PostId', Integer)
-)
-# VoteTypes table
-vote_types = Table('VoteTypes', metadata,
-    Column('Id', Integer, primary_key=True),
-    Column('Name', String(50))
-)
