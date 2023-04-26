@@ -1,153 +1,315 @@
-CREATE TABLE PostNoticeTypes (
-  Id int PRIMARY KEY,
-  ClassId tinyint,
-  Name nvarchar(80),
-  Body nvarchar(max),
-  IsHidden bit,
-  Predefined bit,
-  PostNoticeDurationId int
+CREATETABLEUsers (
+    Id intPRIMARYKEY,
+    Reputation int,
+    CreationDate datetime,
+    DisplayName nvarchar(40),
+    LastAccessDate datetime,
+    WebsiteUrl nvarchar(200),
+    Location nvarchar(100),
+    AboutMe nvarchar(max),
+    Views int,
+    UpVotes int,
+    DownVotes int,
+    ProfileImageUrl nvarchar(200),
+    EmailHash varchar(32),
+    AccountId int);
+CREATETABLEPosts (
+    Id intPRIMARYKEY,
+    PostTypeId tinyint,
+    AcceptedAnswerId int,
+    ParentId int,
+    CreationDate datetime,
+    DeletionDate datetime,
+    Score int,
+    ViewCount int,
+    Body nvarchar(max),
+    OwnerUserId int,
+    OwnerDisplayName nvarchar(40),
+    LastEditorUserId int,
+    LastEditorDisplayName nvarchar(40),
+    LastEditDate datetime,
+    LastActivityDate datetime,
+    Title nvarchar(250),
+    Tags nvarchar(250),
+    AnswerCount int,
+    CommentCount int,
+    FavoriteCount int,
+    ClosedDate datetime,
+    CommunityOwnedDate datetime,
+    ContentLicense varchar(12),
+    FOREIGNKEY (OwnerUserId) REFERENCESUsers(Id),
+    FOREIGNKEY (LastEditorUserId) REFERENCESUsers(Id)
 );
-
-CREATE TABLE PostsWithDeleted (
-  Id int PRIMARY KEY,
-  PostTypeId tinyint,
-  AcceptedAnswerId int,
-  ParentId int,
-  CreationDate datetime,
-  DeletionDate datetime,
-  Score int,
-  ViewCount int,
-  Body nvarchar(max),
-  OwnerUserId int,
-  OwnerDisplayName nvarchar(40),
-  LastEditorUserId int,
-  LastEditorDisplayName nvarchar(40),
-  LastEditDate datetime,
-  LastActivityDate datetime,
-  Title nvarchar(250),
-  Tags nvarchar(250),
-  AnswerCount int,
-  CommentCount int,
-  FavoriteCount int,
-  ClosedDate datetime,
-  CommunityOwnedDate datetime,
-  ContentLicense varchar(12)
+CREATETABLEComments (
+    Id intPRIMARYKEY,
+    PostId int,
+    Score int,
+    Text nvarchar(600),
+    CreationDate datetime,
+    UserDisplayName nvarchar(40),
+    UserId int,
+    ContentLicense varchar(12),
+    FOREIGNKEY (PostId) REFERENCESPosts(Id),
+    FOREIGNKEY (UserId) REFERENCESUsers(Id)
 );
-
-CREATE TABLE PostTags (
-  PostId int,
-  TagId int,
-  PRIMARY KEY (PostId, TagId)
+CREATETABLEBadges (
+    Id intPRIMARYKEY,
+    UserId int,
+    Name nvarchar(50),
+    Datedatetime,
+    Class tinyint,
+    TagBased bit,
+    FOREIGNKEY (UserId) REFERENCESUsers(Id)
 );
-
-CREATE TABLE PostTypes (
-  Id tinyint PRIMARY KEY,
-  Name nvarchar(50)
+CREATETABLECloseAsOffTopicReasonTypes (
+    Id smallintPRIMARYKEY,
+    IsUniversal bit,
+    InputTitle nvarchar(100),
+    MarkdownInputGuidance nvarchar(500),
+    MarkdownPostOwnerGuidance nvarchar(500),
+    MarkdownPublicGuidance nvarchar(500),
+    MarkdownConcensusDescription nvarchar(500),
+    CreationDate datetime,
+    CreationModeratorId int,
+    ApprovalDate datetime,
+    ApprovalModeratorId int,
+    DeactivationDate datetime,
+    DeactivationModeratorId int,
+    FOREIGNKEY (CreationModeratorId) REFERENCESUsers(Id),
+    FOREIGNKEY (ApprovalModeratorId) REFERENCESUsers(Id),
+    FOREIGNKEY (DeactivationModeratorId) REFERENCESUsers(Id)
 );
-
-CREATE TABLE ReviewRejectionReasons (
-  Id tinyint PRIMARY KEY,
-  Name nvarchar(100),
-  Description nvarchar(300),
-  PostTypeId tinyint
+CREATETABLECloseReasonTypes (
+    Id tinyint PRIMARYKEY,
+    Name nvarchar(200),
+    Description nvarchar(500)
 );
-
-CREATE TABLE ReviewTaskResults (
-  Id int PRIMARY KEY,
-  ReviewTaskId int,
-  ReviewTaskResultTypeId tinyint,
-  CreationDate date,
-  RejectionReasonId tinyint,
-  Comment nvarchar(400)
+CREATETABLEFlagTypes (
+    Id tinyint PRIMARYKEY,
+    Name nvarchar(50),
+    Description nvarchar(500)
 );
-
-CREATE TABLE ReviewTaskResultTypes (
-  Id tinyint PRIMARY KEY,
-  Name nvarchar(100),
-  Description nvarchar(300)
+CREATETABLEPendingFlags (
+    Id intPRIMARYKEY,
+    FlagTypeId tinyint,
+    PostId int,
+    CreationDate date,
+    CloseReasonTypeId tinyint,
+    CloseAsOffTopicReasonTypeId smallint,
+    DuplicateOfQuestionId int,
+    BelongsOnBaseHostAddress nvarchar(100),
+    FOREIGNKEY (FlagTypeId) REFERENCESFlagTypes(Id),
+    FOREIGNKEY (PostId) REFERENCESPosts(Id),
+    FOREIGNKEY (CloseReasonTypeId) REFERENCESCloseReasonTypes(Id),
+    FOREIGNKEY (CloseAsOffTopicReasonTypeId) REFERENCESCloseAsOffTopicReasonTypes(Id),
+    FOREIGNKEY (DuplicateOfQuestionId) REFERENCESPosts(Id)
 );
-
-CREATE TABLE ReviewTasks (
-  Id int PRIMARY KEY,
-  ReviewTaskTypeId tinyint,
-  CreationDate date,
-  DeletionDate date,
-  ReviewTaskStateId tinyint,
-  PostId int,
-  SuggestedEditId int,
-  CompletedByReviewTaskId int
+CREATETABLEPostFeedback (
+    Id intPRIMARYKEY,
+    PostId int,
+    IsAnonymous bit,
+    VoteTypeId tinyint,
+    CreationDate datetime,
+    FOREIGNKEY (PostId) REFERENCESPosts(Id)
 );
-
-CREATE TABLE ReviewTaskStates (
-  Id tinyint PRIMARY KEY,
-  Name nvarchar(50),
-  Description nvarchar(300)
+CREATETABLEPostHistoryTypes (
+    Id tinyint PRIMARYKEY,
+    Name nvarchar(50)
 );
-
-CREATE TABLE ReviewTaskTypes (
-  Id tinyint PRIMARY KEY,
-  Name nvarchar(50),
-  Description nvarchar(300)
+CREATETABLEPostHistory (
+    Id intPRIMARYKEY,
+    PostHistoryTypeId tinyint,
+    PostId int,
+    RevisionGUID uniqueidentifier,
+    CreationDate datetime,
+    UserId int,
+    UserDisplayName nvarchar(40),
+    Comment nvarchar(400),
+    Text nvarchar(max),
+    ContentLicense varchar(12),
+    FOREIGNKEY (PostHistoryTypeId) REFERENCESPostHistoryTypes(Id),
+    FOREIGNKEY (PostId) REFERENCESPosts(Id),
+    FOREIGNKEY (UserId) REFERENCESUsers(Id)
 );
-
-CREATE TABLE SuggestedEdits (
-  Id int PRIMARY KEY,
-  PostId int,
-  CreationDate datetime,
-  ApprovalDate datetime,
-  RejectionDate datetime,
-  OwnerUserId int,
-  Comment nvarchar(800),
-  Text nvarchar(max),
-  Title nvarchar(250),
-  Tags nvarchar(250),
-  RevisionGUID uniqueidentifier
+CREATETABLEPostLinks (
+    Id intPRIMARYKEY,
+    CreationDate datetime,
+    PostId int,
+    RelatedPostId int,
+    LinkTypeId tinyint,
+    FOREIGNKEY (PostId) REFERENCESPosts(Id),
+    FOREIGNKEY (RelatedPostId) REFERENCESPosts(Id)
 );
-
-CREATE TABLE SuggestedEditVotes (
-  Id int PRIMARY KEY,
-  SuggestedEditId int,
-  UserId int,
-  VoteTypeId tinyint,
-  CreationDate datetime,
-  TargetUserId int,
-  TargetRepChange int
+CREATETABLEPostNotices (
+    Id intPRIMARYKEY,
+    PostId int,
+    PostNoticeTypeId int,
+    CreationDate datetime,
+    DeletionDate datetime,
+    ExpiryDate datetime,
+    Body nvarchar(max),
+    OwnerUserId int,
+    DeletionUserId int,
+    FOREIGNKEY (PostId) REFERENCESPosts(Id),
+    FOREIGNKEY (OwnerUserId) REFERENCESUsers(Id),
+    FOREIGNKEY (DeletionUserId) REFERENCESUsers(Id)
 );
-
-CREATE TABLE Tags (
-  Id int PRIMARY KEY,
-  TagName nvarchar(35),
-  Count int,
-  ExcerptPostId int,
-  WikiPostId int,
-  IsModeratorOnly bit,
-  IsRequired bit
+CREATETABLEPostNoticeTypes (
+    Id intPRIMARYKEY,
+    ClassId tinyint,
+    Name nvarchar(80),
+    Body nvarchar(max),
+    IsHidden bit,
+    Predefined bit,
+    PostNoticeDurationId int);
+CREATETABLEPostsWithDeleted (
+    Id intPRIMARYKEY,
+    PostTypeId tinyint,
+    AcceptedAnswerId int,
+    ParentId int,
+    CreationDate datetime,
+    DeletionDate datetime,
+    Score int,
+    ViewCount int,
+    Body nvarchar(max),
+    OwnerUserId int,
+    OwnerDisplayName nvarchar(40),
+    LastEditorUserId int,
+    LastEditorDisplayName nvarchar(40),
+    LastEditDate datetime,
+    LastActivityDate datetime,
+    Title nvarchar(250),
+    Tags nvarchar(250),
+    AnswerCount int,
+    CommentCount int,
+    FavoriteCount int,
+    ClosedDate datetime,
+    CommunityOwnedDate datetime,
+    ContentLicense varchar(12),
+    FOREIGNKEY (OwnerUserId) REFERENCESUsers(Id),
+    FOREIGNKEY (LastEditorUserId) REFERENCESUsers(Id)
 );
-
-CREATE TABLE TagSynonyms (
-  Id int PRIMARY KEY,
-  SourceTagName nvarchar(35),
-  TargetTagName nvarchar(35),
-  CreationDate datetime,
-  OwnerUserId int,
-  AutoRenameCount int,
-  LastAutoRename datetime,
-  Score int,
-  ApprovedByUserId int,
-  ApprovalDate datetime
+CREATETABLEPostTypes (
+    Id tinyint PRIMARYKEY,
+    Name nvarchar(50)
 );
-
-CREATE TABLE Votes (
-  Id int PRIMARY KEY,
-  PostId int,
-  VoteTypeId tinyint,
-  UserId int,
-  CreationDate datetime,
-  BountyAmount int
+CREATETABLEPostTags (
+    PostId int,
+    TagId int,
+    PRIMARYKEY (PostId, TagId),
+    FOREIGNKEY (PostId) REFERENCESPosts(Id)
 );
-
-CREATE TABLE VoteTypes (
-  Id tinyint PRIMARY KEY,
-  Name nvarchar(50)
+CREATETABLEReviewRejectionReasons (
+    Id tinyint PRIMARYKEY,
+    Name nvarchar(100),
+    Description nvarchar(300),
+    PostTypeId tinyint,
+    FOREIGNKEY (PostTypeId) REFERENCESPostTypes(Id)
+);
+CREATETABLEReviewTaskResultTypes (
+    Id tinyint PRIMARYKEY,
+    Name nvarchar(100),
+    Description nvarchar(300)
+);
+CREATETABLEReviewTaskResults (
+    Id intPRIMARYKEY,
+    ReviewTaskId int,
+    ReviewTaskResultTypeId tinyint,
+    CreationDate date,
+    RejectionReasonId tinyint,
+    Comment nvarchar(400),
+    FOREIGNKEY (ReviewTaskId) REFERENCESReviewTasks(Id),
+    FOREIGNKEY (ReviewTaskResultTypeId) REFERENCESReviewTaskResultTypes(Id),
+    FOREIGNKEY (RejectionReasonId) REFERENCESReviewRejectionReasons(Id)
+);
+CREATETABLEReviewTaskStates (
+    Id tinyint PRIMARYKEY,
+    Name nvarchar(50),
+    Description nvarchar(300)
+);
+CREATETABLEReviewTaskTypes (
+    Id tinyint PRIMARYKEY,
+    Name nvarchar(50),
+    Description nvarchar(300)
+);
+CREATETABLEReviewTasks (
+    Id intPRIMARYKEY,
+    ReviewTaskTypeId tinyint,
+    CreationDate date,
+    DeletionDate date,
+    ReviewTaskStateId tinyint,
+    PostId int,
+    SuggestedEditId int,
+    CompletedByReviewTaskId int,
+    FOREIGNKEY (ReviewTaskTypeId) REFERENCESReviewTaskTypes(Id),
+    FOREIGNKEY (ReviewTaskStateId) REFERENCESReviewTaskStates(Id),
+    FOREIGNKEY (PostId) REFERENCESPosts(Id)
+);
+CREATETABLESuggestedEdits (
+    Id intPRIMARYKEY,
+    PostId int,
+    CreationDate datetime,
+    ApprovalDate datetime,
+    RejectionDate datetime,
+    OwnerUserId int,
+    Comment nvarchar(800),
+    Text nvarchar(max),
+    Title nvarchar(250),
+    Tags nvarchar(250),
+    RevisionGUID uniqueidentifier,
+    FOREIGNKEY (PostId) REFERENCESPosts(Id),
+    FOREIGNKEY (OwnerUserId) REFERENCESUsers(Id)
+);
+CREATETABLESuggestedEditVotes (
+    Id intPRIMARYKEY,
+    SuggestedEditId int,
+    UserId int,
+    VoteTypeId tinyint,
+    CreationDate datetime,
+    TargetUserId int,
+    TargetRepChange int,
+    FOREIGNKEY (SuggestedEditId) REFERENCESSuggestedEdits(Id),
+    FOREIGNKEY (UserId) REFERENCESUsers(Id),
+    FOREIGNKEY (TargetUserId) REFERENCESUsers(Id)
+);
+CREATETABLETags (
+    Id intPRIMARYKEY,
+    TagName nvarchar(35),
+    Count int,
+    ExcerptPostId int,
+    WikiPostId int,
+    IsModeratorOnly bit,
+    IsRequired bit,
+    FOREIGNKEY (ExcerptPostId) REFERENCESPosts(Id),
+    FOREIGNKEY (WikiPostId) REFERENCESPosts(Id)
+);
+CREATETABLETagSynonyms (
+    Id intPRIMARYKEY,
+    SourceTagName nvarchar(35),
+    TargetTagName nvarchar(35),
+    CreationDate datetime,
+    OwnerUserId int,
+    AutoRenameCount int,
+    LastAutoRename datetime,
+    Score int,
+    ApprovedByUserId int,
+    ApprovalDate datetime,
+    FOREIGNKEY (OwnerUserId) REFERENCESUsers(Id),
+    FOREIGNKEY (ApprovedByUserId) REFERENCESUsers(Id)
+);
+CREATETABLEVoteTypes (
+    Id tinyint PRIMARYKEY,
+    Name nvarchar(50)
+);
+CREATETABLEVotes (
+    Id intPRIMARYKEY,
+    PostId int,
+    VoteTypeId tinyint,
+    UserId int,
+    CreationDate datetime,
+    BountyAmount int,
+    FOREIGNKEY (PostId) REFERENCESPosts(Id),
+    FOREIGNKEY (VoteTypeId) REFERENCESVoteTypes(Id),
+    FOREIGNKEY (UserId) REFERENCESUsers(Id)
 );
 
