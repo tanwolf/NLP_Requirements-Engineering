@@ -45,8 +45,8 @@ From a methodological perspective, the objective was to establish a consistent c
 
 
 ### Most Relevant Notebooks
-01adf_query_whole_data_set.ipynb (Generates the preprocesses the data from Stackoverflow)
-02adf_query_keyword_filter.ipynb (Filters the data, performs Latent Dirichilet Allocation)
-03_svm.ipynb (validates most relevant topic found through LDA using Support Vector Machines)
-04_logistic_regression_count_vectorizer.ipynb (validates most relevant topic found through LDA using Logistic Regression)
-05_RNN.ipynb (validates most relevant topic found through LDA using RNN)
+* 01adf_query_whole_data_set.ipynb (Generates the preprocesses the data from Stackoverflow)
+* 02adf_query_keyword_filter.ipynb (Filters the data, performs Latent Dirichilet Allocation)
+* 03_svm.ipynb (validates most relevant topic found through LDA using Support Vector Machines)
+* 04_logistic_regression_count_vectorizer.ipynb (validates most relevant topic found through LDA using Logistic Regression)
+* 05_RNN.ipynb (validates most relevant topic found through LDA using RNN)
