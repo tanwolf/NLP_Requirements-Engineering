@@ -6,20 +6,18 @@ Link to data source: https://data.stackexchange.com/stackoverflow/query/new
 
 Link to generated schema: https://dbdiagram.io/d/6448f5b26b3194705139098b
 
-Most relevant notebook: 02adf_query_keyword_filter
-
 Abstract
 
-This project employs Natural Language Processing (NLP) to analyze questions and answers from StackOverflow concerning Azure Data Factory (ADF). The project's aim is to derive topics and extract functional and non-functional requirements for operating within ADF.
+This project is a combination of human analysis, unsupervised and supervised machine learning, as well as the artificial intelligence GPT4. It employs Natural Language Processing (NLP) to analyze questions and answers from StackOverflow concerning Azure Data Factory (ADF). The project's aim is to derive topics and extract functional and non-functional requirements for operating within ADF.
 
-Methodology: The project leverages SQL queries on StackExchange to gather data. This data is then transformed into pandas dataframes in Python. Through a combination of traditional NLP, quantitative keyword analysis, and GPT-4 prompts, the project aims to:
-    Generate datasets and sub-datasets that provide insights into requirements for data management and pipeline design in ADF.
-    Establish topics related to data management and pipeline design in ADF using Latent Dirichlet Allocation (LDA).
-    Identify pertinent entities, nouns, and verbs within these topics with the aid of spaCy.
-    Gauge sentiments concerning these topics using Vader sentiment analysis.
-    Validate the most significant topic found through unsupervised machine learning (LDA) with supervised machine learning algorithms.
-    Use GPT-4 prompts to interpret the numeric results of LDA, Vader Sentiment Analysis, and spaCy extractions in terms of requirements engineering for ADF.
-    Implement a coherent code architecture using GPT-4
+Methodology: The project leverages SQL queries on StackExchange to gather data. This data is then transformed into pandas dataframes in Python. Through a combination of traditional NLP, quantitative keyword analysis, supervised machine learning and GPT-4 prompts, the project:
+    - Generates datasets and sub-datasets that provide insights into requirements for data management and pipeline design in ADF.
+    - Establishes topics related to data management and pipeline design in ADF using Latent Dirichlet Allocation (LDA).
+    - Identifies pertinent entities, nouns, and verbs within these topics with the aid of spaCy.
+    - Gaugee sentiments concerning these topics using Vader sentiment analysis.
+    - Validates the most significant topic found through unsupervised machine learning (LDA) with supervised machine learning algorithms.
+    - Uses GPT-4 prompts to interpret the numeric results of LDA, Vader Sentiment Analysis, and spaCy extractions in terms of requirements engineering for ADF.
+    - Implements a coherent code architecture using GPT-4 prompts for generating code aligned with this architecture
 
 Findings:
 - The most significant impact on identifying relevant topics within questions about Azure Data Factory was achieved through manual comparison of quantitative keywords.
@@ -37,4 +35,14 @@ Findings:
     - Operational Efficiency: Requirement for the platform to efficiently perform basic operations like getting and adding data
     - Support and Documentation: Requirement for better support and documentation to aid users in their attempts to use the platform.
 
+Conclusion: The project has provided a solid starting point for requirement engineers seeking an overview of user pain points while working with Azure Data Factory. The dataset that has been generated can be utilized for further investigations.
 
+From a methodological perspective, the objective was to establish a consistent code architecture while exploring 'collaboration' with GPT4. The resulting LDA model has been thoroughly tested in numerous variations and is deemed sufficiently accurate for the purposes of this project. However, the training of unsupervised machine learning models could be further improved. These models currently exhibit slight overfitting and predict with an accuracy of 87%. There is also room for refactoring within the code itself. 
+
+
+Notebooks with the final project results: 
+01adf_query_whole_data_set.ipynb (Generates the preprocesses the data from Stackoverflow)
+02adf_query_keyword_filter.ipynb (Filters the data, performs Latent Dirichilet Allocation)
+03_svm.ipynb (validates most relevant topic found through LDA using Support Vector Machines)
+04_logistic_regression_count_vectorizer.ipynb (validates most relevant topic found through LDA using Logistic Regression)
+05_RNN.ipynb (validates most relevant topic found through LDA using RNN)
