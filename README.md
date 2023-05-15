@@ -7,6 +7,13 @@ Stack Exchange Inc. (2023). Stack Exchange Data Explorer [SQL query on Stack Ove
 
 Link to generated schema: https://dbdiagram.io/d/6448f5b26b3194705139098b
 
+### Most Relevant Notebooks
+* 01adf_query_whole_data_set.ipynb (Generates the preprocesses the data from Stack Overflow)
+* 02adf_query_keyword_filter.ipynb (Filters the data, performs Latent Dirichilet Allocation)
+* 03_svm.ipynb (validates most relevant topic found through LDA using Support Vector Machines)
+* 04_logistic_regression_count_vectorizer.ipynb (validates most relevant topic found through LDA using Logistic Regression)
+* 05_RNN.ipynb (validates most relevant topic found through LDA using RNN)
+
 ## Abstract
 This project is a collaboration between an experienced human text data analyst, gpt4, as well as unsupervised and supervised machine learning algorithms. The goal of this project is to find out how these four "collaborators" can find new ways of analyzing and interpreting large amounts of text data. This project employs Natural Language Processing (NLP) to analyze questions and answers from Stack Overflow concerning Azure Data Factory (ADF). GPT4 is then prompted to derive functional and non-functional requirements for data management within ADF from the NLP results. GPT4 also identifies keywords representing these requirements. These keywords can be used as filters to further analyze the identified requirements.  
 
@@ -51,9 +58,4 @@ GPT4 proven to be a very valuable "coach" for setting up code architecture and f
 
 I am a social scientist who graduated in 2008. My diploma thesis included conducting 24 in depths interviews which I manually coded using microsoft access, pen and paper. Using a methodology based on grounded theory I derived themes, topics and further insghts from the interview transcripts. In 2009 I spent six very intensive months manually coding transcripts of interviews concerning the development of a corporate sustainability strategy. I used Microsoft word for this project. Fast forward to 2018-2022 I intensively researched attributes and keywords in order to write product and category descriptions for e-commerce. All of these experiences taught me to find stories, themes, topics, entities, labels and much more in large text bodies or in keyword sets. In 2022 I enrolled in a data science bootcamp laying a foundation for my machine learning journey. I am particularly interested in how to combine human expertise with classical machine learning and Natural Language Generartion. 
 
-### Most Relevant Notebooks
-* 01adf_query_whole_data_set.ipynb (Generates the preprocesses the data from Stack Overflow)
-* 02adf_query_keyword_filter.ipynb (Filters the data, performs Latent Dirichilet Allocation)
-* 03_svm.ipynb (validates most relevant topic found through LDA using Support Vector Machines)
-* 04_logistic_regression_count_vectorizer.ipynb (validates most relevant topic found through LDA using Logistic Regression)
-* 05_RNN.ipynb (validates most relevant topic found through LDA using RNN)
+
