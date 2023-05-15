@@ -9,6 +9,8 @@ Link to generated schema: https://dbdiagram.io/d/6448f5b26b3194705139098b
 
 final data set: merged_adf_df_with_lda_topic1.csv
 
+Link to process flow chart: https://miro.com/app/board/uXjVMIxaFOo=/?share_link_id=288843918581
+
 ### Most Relevant Notebooks
 * 01adf_query_whole_data_set.ipynb (Generates the preprocesses the data from Stack Overflow)
 * 02adf_query_keyword_filter.ipynb (Filters the data, performs Latent Dirichilet Allocation)
