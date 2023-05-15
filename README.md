@@ -7,6 +7,8 @@ Stack Exchange Inc. (2023). Stack Exchange Data Explorer [SQL query on Stack Ove
 
 Link to generated schema: https://dbdiagram.io/d/6448f5b26b3194705139098b
 
+final data set: 
+
 ### Most Relevant Notebooks
 * 01adf_query_whole_data_set.ipynb (Generates the preprocesses the data from Stack Overflow)
 * 02adf_query_keyword_filter.ipynb (Filters the data, performs Latent Dirichilet Allocation)
@@ -50,7 +52,16 @@ The project leverages SQL queries on StackExchange to gather data. This data is 
     * Support and Documentation: Requirement for better support and documentation to aid users in their attempts to use the platform. (keywords: tried, trying)
 
 ### Conclusion: 
-The data analysis has provided a solid starting point for requirement engineers seeking an overview of user challenges and pain points within Azure Data Factory. The resulting LDA model has been thoroughly tested in numerous variations and is deemed sufficiently accurate for the purposes of this project. However, the training of the unsupervised machine learning models could be further improved. These models currently exhibit slight overfitting while predicting with an accuracy of 87%. There is also room for refactoring within the code itself. The identified requirements could also be validated by further requirements Engineering techniques e.g. stakeholder interviews, surveys and questionanires. Overall, further steps in requirement engineering should be taken from the human perspective: "How to best enable the flow within Azure Data Factory?"   
+The data analysis has resulted in a final data set where each row is either assigned to the most relevamt topic found in the data set or not assigned to any topic. 
+
+length
+
+number of rows assigned to topic
+
+Topic Name
+
+
+provided a solid starting point for requirement engineers seeking an overview of user challenges and pain points within Azure Data Factory. The resulting LDA model has been thoroughly tested in numerous variations and is deemed sufficiently accurate for the purposes of this project. However, the training of the unsupervised machine learning models could be further improved. These models currently exhibit slight overfitting while predicting with an accuracy of 87%. There is also room for refactoring within the code itself. The identified requirements could also be validated by further requirements Engineering techniques e.g. stakeholder interviews, surveys and questionanires. Overall, further steps in requirement engineering should be taken from the human perspective: "How to best enable the flow within Azure Data Factory?"   
 
 GPT4 proven to be a very valuable "coach" for setting up code architecture and for generating code. This process was extremely agile and allowed to test out various NLP and machine learning techniques while ultimately  settling for those most suitable for this project. Using generated code also allowed for more queries to identify relevant keywords for the creation of sub data sets. Identifying the most relevant keywords themselves, however, required an experienced human text data analyst. When interpreting the results of the Latent Dirichilet Allocation, spaCy extractions and Vader Sentiment Analysis GPT4 was able to derive interpretations which would not have been obvious to a single human being. GPT4 clearly allowed me to operate outside of my initial knowledge base and to draw conclusions outside of my field of expertise (e.g. specifics on Azure Data Factory). The results of this project can easily be transformed into learning material for further learning on NLP and Machine Learning.
 
