@@ -1,0 +1,568 @@
+QuestionId,QuestionTitle,QuestionBody,QuestionTags,Date,ViewCount,Score,NumberOfAnswers,AnswerId,AnswerBody
+"479739","How do you manage customers with regards to changing requirements?","<p><a href=""http://steve-yegge.blogspot.com/2008/08/business-requirements-are-bullshit.html"" rel=""nofollow noreferrer"">Steve Yegge's wisdom</a> notwithstanding, most developers are faced with requirements which were gathered from non-technical customers.  Sometimes there are project managers who deal with the customers and translate their requirements, other times not.  In any event, the fact that the requirements will change is an inevitability.</p>
+
+<p>Most of what consititues ""good programming practice"" has to do with <a href=""https://stackoverflow.com/questions/466081/adapting-to-meet-changing-business-requirements"">developing systems which are adaptable</a> so that they can withstand changing requirements.  Principles like YAGNI, DRY, loose coupling, etc. contribute to this.  Iterative development processes such as Agile also attempt to address the concern of trying to hit a moving target, and of course having a system under test makes it infinitely more feasible to make changes.</p>
+
+<p>Nonetheless, it seems that for many of us changing requirements can not only <a href=""https://stackoverflow.com/questions/162367/what-hurts-the-quality-of-your-code-most"">hurt the quality of our software</a>, but can also <a href=""https://stackoverflow.com/questions/71199/what-makes-you-lose-motivation"">drain our motivation</a> and make us want to stab someone.</p>
+
+<p>This question is about how to <strong>manage the customer</strong> to make it possible for them to change their requirements in the ways that they need, while discouraging arbitrary or frivolous changes.  How do you do it?</p>
+
+<ul>
+<li>Do you have project managers to insulate the devs from the customer?</li>
+<li>Do you have a formal change management process?  Change managers?</li>
+<li>How difficult is it for the customer to get a change when they really need it?</li>
+<li>Conversely, how easy is it for a customer to get a change when it's ""frivolous""?</li>
+<li>How much detail do you give the customer when explaining the cost of a change?</li>
+<li>How quickly are you able to give the customer this information after receiving a request for change?</li>
+<li>What factors can torpedo the process (e.g. <a href=""https://stackoverflow.com/questions/463512/telling-a-project-manager-no"">PM's who can't say no to the customer?</a>)</li>
+<li><strong>What works for you?</strong></li>
+</ul>
+","<project-management><requirements><change-management>","2009-01-26 13:10:40","5646","8","7","479808","<p>If you are looking for the ideal world where the customer never changes his mind or you get the ideal spec - <strong>you are in the wrong business</strong>.  That being said, the most effective mechanism I have found for managing customer expectations and change requests is to institute an accurate system of measurement.</p>
+
+<p>This is how I run my team:</p>
+
+<p>1) We start with user stories.  The customer is involved in writing them and the development team estimates how long each user story will take in a relative manner.</p>
+
+<p>2) Using prior experience I take these relative estimates (story points) and create a rough schedule for when major milestones of the project will be complete.</p>
+
+<p>3) Within these milestones we run 2-week iterations.   The customer is involved in setting the approval criteria and whether or not the story has been approved.  A simple burn down chart shows the customer how close we are to meeting the launch goal.</p>
+
+<p>4) Often time during the approval sessions the customer will request a change because the feature did not turn out how he expected it (even though it met his original approval criteria).  At this time you generate a new story with a new estimate.  You can also adjust your milestone dates appropriately.  This then puts the ball back into the customers court:</p>
+
+<ul>
+<li>Often times they realize their change request isn't worth it (they'd have to get approval from their boss) and we'll kill the new feature</li>
+<li>Sometimes it is important so we'll delay the due date to get the feature in</li>
+<li>And finally, there's always the option to kill another not so important feature that will take an equivalent amount of time.  </li>
+</ul>
+
+<p>The key is not to run away from change requests, but to establish that every change request has consequences on the product.  There's no such thing as a <em>free lunch.</em></p>
+"
+"479739","How do you manage customers with regards to changing requirements?","<p><a href=""http://steve-yegge.blogspot.com/2008/08/business-requirements-are-bullshit.html"" rel=""nofollow noreferrer"">Steve Yegge's wisdom</a> notwithstanding, most developers are faced with requirements which were gathered from non-technical customers.  Sometimes there are project managers who deal with the customers and translate their requirements, other times not.  In any event, the fact that the requirements will change is an inevitability.</p>
+
+<p>Most of what consititues ""good programming practice"" has to do with <a href=""https://stackoverflow.com/questions/466081/adapting-to-meet-changing-business-requirements"">developing systems which are adaptable</a> so that they can withstand changing requirements.  Principles like YAGNI, DRY, loose coupling, etc. contribute to this.  Iterative development processes such as Agile also attempt to address the concern of trying to hit a moving target, and of course having a system under test makes it infinitely more feasible to make changes.</p>
+
+<p>Nonetheless, it seems that for many of us changing requirements can not only <a href=""https://stackoverflow.com/questions/162367/what-hurts-the-quality-of-your-code-most"">hurt the quality of our software</a>, but can also <a href=""https://stackoverflow.com/questions/71199/what-makes-you-lose-motivation"">drain our motivation</a> and make us want to stab someone.</p>
+
+<p>This question is about how to <strong>manage the customer</strong> to make it possible for them to change their requirements in the ways that they need, while discouraging arbitrary or frivolous changes.  How do you do it?</p>
+
+<ul>
+<li>Do you have project managers to insulate the devs from the customer?</li>
+<li>Do you have a formal change management process?  Change managers?</li>
+<li>How difficult is it for the customer to get a change when they really need it?</li>
+<li>Conversely, how easy is it for a customer to get a change when it's ""frivolous""?</li>
+<li>How much detail do you give the customer when explaining the cost of a change?</li>
+<li>How quickly are you able to give the customer this information after receiving a request for change?</li>
+<li>What factors can torpedo the process (e.g. <a href=""https://stackoverflow.com/questions/463512/telling-a-project-manager-no"">PM's who can't say no to the customer?</a>)</li>
+<li><strong>What works for you?</strong></li>
+</ul>
+","<project-management><requirements><change-management>","2009-01-26 13:10:40","5646","8","7","479936","<p>You can’t expect customers to know what they want at the start, so you must be adaptable. But also you need to stop change for changes sake. </p>
+
+<p><strong>This is for ‘internal’ customers.</strong></p>
+
+<p>I have found that bargaining with the customer is an effective way to go. They can have whatever feature they want if they wait for it, or if they sacrifice some other (yet to be implemented) features. This forces them to think about the value of the change they are asking for in relation to the system as a whole. </p>
+
+<p>Sometimes this works well and a good compromise is reached. Other times the customer throws their toys out of the pram and goes however high they have to get the feature implemented and quality is reduced. </p>
+
+<p>If the customer is paying, it is a different ball game.  They need to be made aware that change costs, and that the cost increases as the product nears completion. This means that you have to do a lot of up front analysis about what you will deliver and make sure the spec is agreed upon. So then you can measure what has changed. This may not be the most effective solution for either party but it does keep things cut and dry. So they are not dissatisfied and you don’t end up doing loads of work for free.</p>
+"
+"479739","How do you manage customers with regards to changing requirements?","<p><a href=""http://steve-yegge.blogspot.com/2008/08/business-requirements-are-bullshit.html"" rel=""nofollow noreferrer"">Steve Yegge's wisdom</a> notwithstanding, most developers are faced with requirements which were gathered from non-technical customers.  Sometimes there are project managers who deal with the customers and translate their requirements, other times not.  In any event, the fact that the requirements will change is an inevitability.</p>
+
+<p>Most of what consititues ""good programming practice"" has to do with <a href=""https://stackoverflow.com/questions/466081/adapting-to-meet-changing-business-requirements"">developing systems which are adaptable</a> so that they can withstand changing requirements.  Principles like YAGNI, DRY, loose coupling, etc. contribute to this.  Iterative development processes such as Agile also attempt to address the concern of trying to hit a moving target, and of course having a system under test makes it infinitely more feasible to make changes.</p>
+
+<p>Nonetheless, it seems that for many of us changing requirements can not only <a href=""https://stackoverflow.com/questions/162367/what-hurts-the-quality-of-your-code-most"">hurt the quality of our software</a>, but can also <a href=""https://stackoverflow.com/questions/71199/what-makes-you-lose-motivation"">drain our motivation</a> and make us want to stab someone.</p>
+
+<p>This question is about how to <strong>manage the customer</strong> to make it possible for them to change their requirements in the ways that they need, while discouraging arbitrary or frivolous changes.  How do you do it?</p>
+
+<ul>
+<li>Do you have project managers to insulate the devs from the customer?</li>
+<li>Do you have a formal change management process?  Change managers?</li>
+<li>How difficult is it for the customer to get a change when they really need it?</li>
+<li>Conversely, how easy is it for a customer to get a change when it's ""frivolous""?</li>
+<li>How much detail do you give the customer when explaining the cost of a change?</li>
+<li>How quickly are you able to give the customer this information after receiving a request for change?</li>
+<li>What factors can torpedo the process (e.g. <a href=""https://stackoverflow.com/questions/463512/telling-a-project-manager-no"">PM's who can't say no to the customer?</a>)</li>
+<li><strong>What works for you?</strong></li>
+</ul>
+","<project-management><requirements><change-management>","2009-01-26 13:10:40","5646","8","7","479969","<p>In software engineering, change is just a fact.  It will happen.  For us, everything comes at a price.  We'll make just about any change the clients wants, but there is always a time estimate and a cost associated with it.  Do we ever tell the client no -- not normally, but sometimes the changes request comes in at a very high cost.  We do draw the line at potential security threats etc. in which case we calmly explain to them that we can't accommodate the request.  </p>
+
+<p>How much do we explain to the customer, we explain where the money is going to be allocated, this much for development, this much for analysis etc.  We don't explicitly tell them why something costs the way it does.  Now I will admit, this does vary a little with some of our clients.  Some of them get very detailed billing as to exactly how many hours are spent where.  To get the contract we had to agree to it, although this is very rare for us.</p>
+
+<p>We have sales people who can't say no at times, and that can cause problems.  We have spent a lot of time working on that, but unfortunately it still crops up.  We combat it by explaining how much money they cost us by quoting something without researching what it will take.  Transparency is key at all levels.  Everyone has to know how their decisions affect the bottom line.  </p>
+
+<p>Do we do frivolous changes? Yep.  What you have to remember is that when you bill hourly most of the time a 5 minute change is billed at a full hour, so that is quite lucrative.  We explain all of this before like we do with any change request so they are aware of it, but it tends to help discourage such behavior unless it is really important.  The fact is that we treat all changes the same.  We don't assume we know what is considered frivolous to them no matter how absurd we think it might be.  We have a formal change process where the customer asks for something we write it down and get them to sign off that is what we evaluate it and present a Cost of Work Estimate.  They either agree in which case they formally sign a document letting us know it is ok to start, or they rescind the request.  We try to be diligent, but we let them know that it will take a few days for us to get a response to their request.</p>
+
+<p>A coworker of mine gave me the best advice I have ever heard about managing customer relations ships.  It's a give and take.  To make the customer happy, you have to be willing to help them when they need something, but at the same time, you have to be able to say no.  When dealing with people they want you to help them, but they also want you to have a spine and stand up for yourself.  It becomes a win-win situation that way.</p>
+"
+"479739","How do you manage customers with regards to changing requirements?","<p><a href=""http://steve-yegge.blogspot.com/2008/08/business-requirements-are-bullshit.html"" rel=""nofollow noreferrer"">Steve Yegge's wisdom</a> notwithstanding, most developers are faced with requirements which were gathered from non-technical customers.  Sometimes there are project managers who deal with the customers and translate their requirements, other times not.  In any event, the fact that the requirements will change is an inevitability.</p>
+
+<p>Most of what consititues ""good programming practice"" has to do with <a href=""https://stackoverflow.com/questions/466081/adapting-to-meet-changing-business-requirements"">developing systems which are adaptable</a> so that they can withstand changing requirements.  Principles like YAGNI, DRY, loose coupling, etc. contribute to this.  Iterative development processes such as Agile also attempt to address the concern of trying to hit a moving target, and of course having a system under test makes it infinitely more feasible to make changes.</p>
+
+<p>Nonetheless, it seems that for many of us changing requirements can not only <a href=""https://stackoverflow.com/questions/162367/what-hurts-the-quality-of-your-code-most"">hurt the quality of our software</a>, but can also <a href=""https://stackoverflow.com/questions/71199/what-makes-you-lose-motivation"">drain our motivation</a> and make us want to stab someone.</p>
+
+<p>This question is about how to <strong>manage the customer</strong> to make it possible for them to change their requirements in the ways that they need, while discouraging arbitrary or frivolous changes.  How do you do it?</p>
+
+<ul>
+<li>Do you have project managers to insulate the devs from the customer?</li>
+<li>Do you have a formal change management process?  Change managers?</li>
+<li>How difficult is it for the customer to get a change when they really need it?</li>
+<li>Conversely, how easy is it for a customer to get a change when it's ""frivolous""?</li>
+<li>How much detail do you give the customer when explaining the cost of a change?</li>
+<li>How quickly are you able to give the customer this information after receiving a request for change?</li>
+<li>What factors can torpedo the process (e.g. <a href=""https://stackoverflow.com/questions/463512/telling-a-project-manager-no"">PM's who can't say no to the customer?</a>)</li>
+<li><strong>What works for you?</strong></li>
+</ul>
+","<project-management><requirements><change-management>","2009-01-26 13:10:40","5646","8","7","480006","<p>Managing the customer is hard, and it is something that very easily can go wrong.</p>
+
+<p>I find that as early as possible you need to <strong>gain the trust</strong> of the customer. For me I think you can do this by:</p>
+
+<ul>
+<li>Ask the customer to appoint a <strong>product manager</strong> - who is clear thinking enough to communicate the requirements he/she wants, and look to build a strong working relationship with him/her.</li>
+<li><strong>Really try to understand their business</strong> - you don't need to be a domain expert, but you need to know where the customer is coming from.</li>
+<li>Ask pertinent questions about what they want - <strong>don't assume what they ask for (at first) is what they really want</strong>.</li>
+<li>At first <strong>welcome all changes</strong>. This is not the customer being annoying and fickle, it as an opportunity to better understand what the customer really wants. If this costs you time/money, then you may need to accept it as <strong>a loss leader</strong>.</li>
+<li><strong>Deliver a prototype early</strong>, and incorporate as much customer feedback as practicable.</li>
+<li>Give the customer <strong>a kick arse product</strong>.</li>
+</ul>
+
+<p>Once you have done this, and the customer trusts you, then you will be in a position to start knocking back unreasonable changes, or ask for extra payments/time for things that were previously considered out of scope.</p>
+
+<p>Of course, you won't be able to build this sort of relationship with every customer, some <em>are</em> idiots (in this case see if you can have a different product manager appointed) but you should always do as much as <em>you</em> can to build an effective working relationship.</p>
+"
+"479739","How do you manage customers with regards to changing requirements?","<p><a href=""http://steve-yegge.blogspot.com/2008/08/business-requirements-are-bullshit.html"" rel=""nofollow noreferrer"">Steve Yegge's wisdom</a> notwithstanding, most developers are faced with requirements which were gathered from non-technical customers.  Sometimes there are project managers who deal with the customers and translate their requirements, other times not.  In any event, the fact that the requirements will change is an inevitability.</p>
+
+<p>Most of what consititues ""good programming practice"" has to do with <a href=""https://stackoverflow.com/questions/466081/adapting-to-meet-changing-business-requirements"">developing systems which are adaptable</a> so that they can withstand changing requirements.  Principles like YAGNI, DRY, loose coupling, etc. contribute to this.  Iterative development processes such as Agile also attempt to address the concern of trying to hit a moving target, and of course having a system under test makes it infinitely more feasible to make changes.</p>
+
+<p>Nonetheless, it seems that for many of us changing requirements can not only <a href=""https://stackoverflow.com/questions/162367/what-hurts-the-quality-of-your-code-most"">hurt the quality of our software</a>, but can also <a href=""https://stackoverflow.com/questions/71199/what-makes-you-lose-motivation"">drain our motivation</a> and make us want to stab someone.</p>
+
+<p>This question is about how to <strong>manage the customer</strong> to make it possible for them to change their requirements in the ways that they need, while discouraging arbitrary or frivolous changes.  How do you do it?</p>
+
+<ul>
+<li>Do you have project managers to insulate the devs from the customer?</li>
+<li>Do you have a formal change management process?  Change managers?</li>
+<li>How difficult is it for the customer to get a change when they really need it?</li>
+<li>Conversely, how easy is it for a customer to get a change when it's ""frivolous""?</li>
+<li>How much detail do you give the customer when explaining the cost of a change?</li>
+<li>How quickly are you able to give the customer this information after receiving a request for change?</li>
+<li>What factors can torpedo the process (e.g. <a href=""https://stackoverflow.com/questions/463512/telling-a-project-manager-no"">PM's who can't say no to the customer?</a>)</li>
+<li><strong>What works for you?</strong></li>
+</ul>
+","<project-management><requirements><change-management>","2009-01-26 13:10:40","5646","8","7","484028","<p>I’d prefer a term of evolving requirements to “changing requirements”. Professor M.M.Lehman (<a href=""http://www.doc.ic.ac.uk/~mml/"" rel=""nofollow noreferrer"">http://www.doc.ic.ac.uk/~mml/</a> and <a href=""http://en.wikipedia.org/wiki/Meir_Manny_Lehman"" rel=""nofollow noreferrer"">http://en.wikipedia.org/wiki/Meir_Manny_Lehman</a>) has done a considerable contribution into research on software evolution; his works also suggest that not all types of requirements evolve. One might consider themselves lucky if they happen to work on one of these systems, where requirements stay the same (i.e. math libraries etc).</p>
+
+<p>To the rest of us experience suggests that developers prefer as much information about requirements up front as possible, whereas customers or end-users value an ability to specify or adjust requirements as late as possible into the development process. The former need the detailed information to help planning and designing the solution, the latter can gain a strategic advantage through changing a requirement late, because it gives customer some room for manoeuvre to respond to the changing environment or information gained on as a result of the earlier stages / iterations of the project. A trade-off between the ability to have a detailed plan and change things largely determines the development process itself (waterfall, agile, spiral etc).</p>
+
+<p>Some practical advice managing the evolution of requirements:</p>
+
+<ul>
+<li><p>Build in some room into the initial plan to account for evolving requirements, multiple check points or iterations.</p></li>
+<li><p>Either put volatile requirements into the beginning of the project so that some kind of prototyping or feasibility study is likely to clarify them or plan for the change late into the project. </p></li>
+<li><p>Monitor that the requirements are still relevant.</p></li>
+<li><p>Have an up to date, prioritised list of current requirements handy. Nothing else helps to keep evolution in control as a good visibility to all stakeholders of current “must haves” including their relative priority and cost.</p></li>
+<li><p>Keep managing customer expectations on how long things are going to take; this also helps to keep focus.</p></li>
+<li><p>Introduce a formal process for changing or adding requirements if you need. The process description needs to specify roles of these involved, frequency of reviews etc. It could serve as a good safeguard against some political and most opportunistic but not essential requirements. </p></li>
+<li><p>Build in some time for refactoring even for the first version. You’re very likely to throw all or part of the solution as a result of additional knowledge gain during the development.</p></li>
+</ul>
+"
+"479739","How do you manage customers with regards to changing requirements?","<p><a href=""http://steve-yegge.blogspot.com/2008/08/business-requirements-are-bullshit.html"" rel=""nofollow noreferrer"">Steve Yegge's wisdom</a> notwithstanding, most developers are faced with requirements which were gathered from non-technical customers.  Sometimes there are project managers who deal with the customers and translate their requirements, other times not.  In any event, the fact that the requirements will change is an inevitability.</p>
+
+<p>Most of what consititues ""good programming practice"" has to do with <a href=""https://stackoverflow.com/questions/466081/adapting-to-meet-changing-business-requirements"">developing systems which are adaptable</a> so that they can withstand changing requirements.  Principles like YAGNI, DRY, loose coupling, etc. contribute to this.  Iterative development processes such as Agile also attempt to address the concern of trying to hit a moving target, and of course having a system under test makes it infinitely more feasible to make changes.</p>
+
+<p>Nonetheless, it seems that for many of us changing requirements can not only <a href=""https://stackoverflow.com/questions/162367/what-hurts-the-quality-of-your-code-most"">hurt the quality of our software</a>, but can also <a href=""https://stackoverflow.com/questions/71199/what-makes-you-lose-motivation"">drain our motivation</a> and make us want to stab someone.</p>
+
+<p>This question is about how to <strong>manage the customer</strong> to make it possible for them to change their requirements in the ways that they need, while discouraging arbitrary or frivolous changes.  How do you do it?</p>
+
+<ul>
+<li>Do you have project managers to insulate the devs from the customer?</li>
+<li>Do you have a formal change management process?  Change managers?</li>
+<li>How difficult is it for the customer to get a change when they really need it?</li>
+<li>Conversely, how easy is it for a customer to get a change when it's ""frivolous""?</li>
+<li>How much detail do you give the customer when explaining the cost of a change?</li>
+<li>How quickly are you able to give the customer this information after receiving a request for change?</li>
+<li>What factors can torpedo the process (e.g. <a href=""https://stackoverflow.com/questions/463512/telling-a-project-manager-no"">PM's who can't say no to the customer?</a>)</li>
+<li><strong>What works for you?</strong></li>
+</ul>
+","<project-management><requirements><change-management>","2009-01-26 13:10:40","5646","8","7","484904","<p>The customer comes to you to do something because they either don't have the time to do it or they don't know what to do <strong>(and want to pay you to do it for them)</strong>. If you have changing requirements, it's because of the latter. In other words, they are paying you to figure out the details! And they know what they like and don't like but they won't know how it works.</p>
+
+<p>Recognize this and whatever the solution needs to be falls in to place.</p>
+"
+"463512","How to tell a project manager ""NO"" to scope creep","<p>While project managers may each have their own personality and management style, it seems that many of them have a <strong>pernicious love of sneaking in ""scope creep""</strong> when they can (whether anyone is watching or not).  While they usually mean well (bless their hearts), <strong>what's the best way that you've found to say ""NO"" to project managers?</strong></p>
+","<project-management><scope><requirements><scope-creep>","2009-01-20 23:16:45","1798","13","10","463523","<p>By having good costing and feature design for what is in scope, taking it back to them and asking if they want to move the date out, or cut other features.  If the latter, what features are no longer important that haven't been started yet?</p>
+"
+"463512","How to tell a project manager ""NO"" to scope creep","<p>While project managers may each have their own personality and management style, it seems that many of them have a <strong>pernicious love of sneaking in ""scope creep""</strong> when they can (whether anyone is watching or not).  While they usually mean well (bless their hearts), <strong>what's the best way that you've found to say ""NO"" to project managers?</strong></p>
+","<project-management><scope><requirements><scope-creep>","2009-01-20 23:16:45","1798","13","10","463529","<p>The easiest way to do it is be firm and tell them that it <strong>will</strong> affect the release date if you include the additional feature(s). Ultimately their job is to ship a product on time, so the bottom line for them is ""can we fit this in without breaking the schedule"". If the answer is no, then any project manager worth their salary should fall firmly on the side of development in agreeing it's unacceptable scope creep.</p>
+"
+"463512","How to tell a project manager ""NO"" to scope creep","<p>While project managers may each have their own personality and management style, it seems that many of them have a <strong>pernicious love of sneaking in ""scope creep""</strong> when they can (whether anyone is watching or not).  While they usually mean well (bless their hearts), <strong>what's the best way that you've found to say ""NO"" to project managers?</strong></p>
+","<project-management><scope><requirements><scope-creep>","2009-01-20 23:16:45","1798","13","10","463530","<p>Let me start by saying that if a PM is ""sneaking in scope creep"" he is a very bad project manager. </p>
+
+<p>Having said that...it's not your job to say no to a project manager. It's your job to ensure that he knows and understands the costs and risks of the change he is making. If the PM insists on changing the scope and adjusting nothing else in the project, get another job (because the project and/or company is doomed).</p>
+"
+"463512","How to tell a project manager ""NO"" to scope creep","<p>While project managers may each have their own personality and management style, it seems that many of them have a <strong>pernicious love of sneaking in ""scope creep""</strong> when they can (whether anyone is watching or not).  While they usually mean well (bless their hearts), <strong>what's the best way that you've found to say ""NO"" to project managers?</strong></p>
+","<project-management><scope><requirements><scope-creep>","2009-01-20 23:16:45","1798","13","10","463541","<p>Chances are, while you suppose that your project manager has a 'pernicious love of sneaking in ""scope creep"" when they can', his perspective is probably different. It is probably more productive to make sure you understand his point of view.</p>
+
+<p>This is of course in addition to communicating your own point of view, namely the consequences of the scope creep. You probably need to explicitly identify the additional work in your development plan, estimate how long the additional work will take, and explain that this means a delay or dropping some other feature.</p>
+
+<p>This only works if your estimates are any good. This does not work if you do the additional work off the books, so that the additional time spent is not visible. Otherwise, you might meet the deadline for other reasons, such as harder work or efficiency gains, and your project manager will just remember that scope creep did not affect the delivery date 'last time'.</p>
+"
+"463512","How to tell a project manager ""NO"" to scope creep","<p>While project managers may each have their own personality and management style, it seems that many of them have a <strong>pernicious love of sneaking in ""scope creep""</strong> when they can (whether anyone is watching or not).  While they usually mean well (bless their hearts), <strong>what's the best way that you've found to say ""NO"" to project managers?</strong></p>
+","<project-management><scope><requirements><scope-creep>","2009-01-20 23:16:45","1798","13","10","463545","<p><strong>Be honest</strong> </p>
+
+<p>Explain that there is a tight dependency between ship date, quality and features. Tell them that if they want to meet the ship date the quality will suffer if the new feature is added. </p>
+"
+"463512","How to tell a project manager ""NO"" to scope creep","<p>While project managers may each have their own personality and management style, it seems that many of them have a <strong>pernicious love of sneaking in ""scope creep""</strong> when they can (whether anyone is watching or not).  While they usually mean well (bless their hearts), <strong>what's the best way that you've found to say ""NO"" to project managers?</strong></p>
+","<project-management><scope><requirements><scope-creep>","2009-01-20 23:16:45","1798","13","10","463548","<p>By pursuading him to understand how you are trying to help him save his job (i.e. you are telling him the truth.) He's got more at stake than you, I imagine.</p>
+"
+"463512","How to tell a project manager ""NO"" to scope creep","<p>While project managers may each have their own personality and management style, it seems that many of them have a <strong>pernicious love of sneaking in ""scope creep""</strong> when they can (whether anyone is watching or not).  While they usually mean well (bless their hearts), <strong>what's the best way that you've found to say ""NO"" to project managers?</strong></p>
+","<project-management><scope><requirements><scope-creep>","2009-01-20 23:16:45","1798","13","10","463556","<p>A good rule of thumb is to always answer, ""Okay. What should we drop to get this in by the deadline?"" and/or ""Okay. If we move the deadline to X, we can add that in.""</p>
+
+<p>Every change affects completion time. There's no such thing as a zero-time task. Forcing a project manager to realize that quality, deadline, or feature list will suffer every time they make a change will go a long way towards getting them to think right about scope creep.</p>
+"
+"463512","How to tell a project manager ""NO"" to scope creep","<p>While project managers may each have their own personality and management style, it seems that many of them have a <strong>pernicious love of sneaking in ""scope creep""</strong> when they can (whether anyone is watching or not).  While they usually mean well (bless their hearts), <strong>what's the best way that you've found to say ""NO"" to project managers?</strong></p>
+","<project-management><scope><requirements><scope-creep>","2009-01-20 23:16:45","1798","13","10","463559","<p>If you want to succeed in your organization, you will want to be a team player and should strive to demonstrate your commitment.  Sometimes, this means putting in some extra time to get a great new suggestion into the product.  </p>
+
+<p>However, you are more likely to command respect by placing firm limits on what can reasonably be expected of you. One way to do this is by helping managers to understand that they are not going to <em>improve</em> a product by engaging in scope-creep but that they are more likely to <em>hurt</em> the product in the long run.</p>
+"
+"463512","How to tell a project manager ""NO"" to scope creep","<p>While project managers may each have their own personality and management style, it seems that many of them have a <strong>pernicious love of sneaking in ""scope creep""</strong> when they can (whether anyone is watching or not).  While they usually mean well (bless their hearts), <strong>what's the best way that you've found to say ""NO"" to project managers?</strong></p>
+","<project-management><scope><requirements><scope-creep>","2009-01-20 23:16:45","1798","13","10","464761","<p>Something that has worked well for me in the past:</p>
+
+<p>I am taking it that if your project manager wants to sneak in features they do not have an accurate project plan. Keep your own task list with an estimate of how long each task will take, ordered by priority - it doesn't need to be elaborate just a text document or spreadsheet. If your project manager wants you to add a new feature, send a copy of your list and ask where you should insert it in the priority order.</p>
+
+<p>If the project manager tries to negotiate down your time estimates then just say ""I will do my best, but I can't guarantee anything.""</p>
+"
+"463512","How to tell a project manager ""NO"" to scope creep","<p>While project managers may each have their own personality and management style, it seems that many of them have a <strong>pernicious love of sneaking in ""scope creep""</strong> when they can (whether anyone is watching or not).  While they usually mean well (bless their hearts), <strong>what's the best way that you've found to say ""NO"" to project managers?</strong></p>
+","<project-management><scope><requirements><scope-creep>","2009-01-20 23:16:45","1798","13","10","486115","<p>Are the bits that get crept into the project being asked for by the client? Are they valuable items to deliver?</p>
+
+<p>There is certainly an issue with the PM if they are sneaking things into the scope and not making them visible. This is a serious concern and something I would raise with them directly and openly.</p>
+
+<p>However, scope creep (in my book) is perfectly acceptable if it continues to meet the requirements of the business. Sure, you have deadlines, but what's wrong with being flexible on what you deliver on that deadline? This is where visibility is critical.</p>
+"
+"456349","Why do so many sites discuss programming as opposed to describing the systems that they're trying to produce?","<p>There are a lot of sites out there that teach people how to build better software, but why is it that there are very few sites that actually give detailed descriptions of the domains that we (as programmers) are supposed to create? One can only construct so many inventory, accounting, and ERP systems before a pattern of common requirements start to emerge among the different types of systems. Logically speaking, if programmers spend so much time trying to create reusable components in their architectures, does that imply that they should have to have some reusable ""blueprint"" that describes the systems that they're supposed to create? In other words, it seems like the focus of software development has been too focused on ""how"" software should be built rather than to catalogue and accurately specify (with detailed requirements) ""what"" should be used in the first place.</p>
+
+<p>So my question is this: Has there been any work done to catalogue all the different types of system specifications into a single place, all on a single site? If lacking the proper requirements at the start of the project is one of the banes of software development, wouldn't it make more sense to be able to 'reuse' requirement specifications from previous systems of the same type that have already been written?</p>
+","<requirements>","2009-01-19 02:10:14","938","26","12","456370","<p>There are, but they are usually run by vendors wanting to sell you a solution. :-/;</p>
+"
+"456349","Why do so many sites discuss programming as opposed to describing the systems that they're trying to produce?","<p>There are a lot of sites out there that teach people how to build better software, but why is it that there are very few sites that actually give detailed descriptions of the domains that we (as programmers) are supposed to create? One can only construct so many inventory, accounting, and ERP systems before a pattern of common requirements start to emerge among the different types of systems. Logically speaking, if programmers spend so much time trying to create reusable components in their architectures, does that imply that they should have to have some reusable ""blueprint"" that describes the systems that they're supposed to create? In other words, it seems like the focus of software development has been too focused on ""how"" software should be built rather than to catalogue and accurately specify (with detailed requirements) ""what"" should be used in the first place.</p>
+
+<p>So my question is this: Has there been any work done to catalogue all the different types of system specifications into a single place, all on a single site? If lacking the proper requirements at the start of the project is one of the banes of software development, wouldn't it make more sense to be able to 'reuse' requirement specifications from previous systems of the same type that have already been written?</p>
+","<requirements>","2009-01-19 02:10:14","938","26","12","456395","<p>I completely agree, where is the 'Dummy's guide to inventory IT', the accredited data model for customers, addresses and contact details etc etc. I've found myself re-implementing the same code in so many different places, with subtly different fields and logic but basically the same stuff. A few years back I found a site of pre-cooked data models - a small step in the right direction but not the whole story <a href=""http://www.univdata.com/"" rel=""nofollow noreferrer"" title=""Universal Data Models"">Universal Data Models</a> (no connection). You'll notice that they haven't had much interest in their product though.</p>
+
+<p>I've also worked in a couple of organisations which were developing their own 'universal' data model as a saleable product. One was in the domain of financial services, and they got to 1500+ DB2 tables, and gave up. Organisations pride themselves on being unique, whereas we (the techs) realise that under the hood most are doing pretty similar stuff - I think it might be too damaging to corporate ego to fess up, and admit they're just the same as everyone else using UniversalCustomer (TM) 1.7. Also that makes these companies ripe for a bit of SAP, Peopleware etc.</p>
+
+<p>As a final thought - there's a lot of low hanging fruit for the entreprenaurs here. A decent set of short books describing common domains. I mean the super simple stuff, persons name, address, telephone etc - with all the little foibles like title in different cultures, and phone number layout handled - now there's a book/wiki a lot of people could use.</p>
+"
+"456349","Why do so many sites discuss programming as opposed to describing the systems that they're trying to produce?","<p>There are a lot of sites out there that teach people how to build better software, but why is it that there are very few sites that actually give detailed descriptions of the domains that we (as programmers) are supposed to create? One can only construct so many inventory, accounting, and ERP systems before a pattern of common requirements start to emerge among the different types of systems. Logically speaking, if programmers spend so much time trying to create reusable components in their architectures, does that imply that they should have to have some reusable ""blueprint"" that describes the systems that they're supposed to create? In other words, it seems like the focus of software development has been too focused on ""how"" software should be built rather than to catalogue and accurately specify (with detailed requirements) ""what"" should be used in the first place.</p>
+
+<p>So my question is this: Has there been any work done to catalogue all the different types of system specifications into a single place, all on a single site? If lacking the proper requirements at the start of the project is one of the banes of software development, wouldn't it make more sense to be able to 'reuse' requirement specifications from previous systems of the same type that have already been written?</p>
+","<requirements>","2009-01-19 02:10:14","938","26","12","456404","<p>Who would create such a thing? Who would <em>use</em> it?</p>
+
+<p>Near as i can tell, you're talking about a library of application designs. The people disposed to sharing such detailed designs are already doing so - in the form of open specifications or open source. The former tends to attract mostly people and organizations already involved in creating products that implement such specs, or products that inter-operate with systems that do. The latter... well, why bother re-implementing the design when you can just hack the source?</p>
+
+<p>As <a href=""https://stackoverflow.com/questions/456349/why-are-there-so-many-sites-dedicated-to-programming-and-yet-there-are-relatively#456370"">Mark Harrison notes</a>, there <em>are</em> plenty of companies willing to promote their designs for common business systems. ""Buy our system, and just bolt on the functionality necessary for your organization"", they'll tell you; ""why waste time re-implementing something we've already done?"" There's really very little motivation for them to share detailed implementation specs, since they really don't want you re-implementing what they're trying to sell you. </p>
+
+<p>Finally... These things really just aren't that complicated. Or rather, they are... but the complexity is born out of size, out of the myriad combinations of arcane requirements that any given organization might impose upon the system. The real work comes in interpreting these requirements, building them into the base system - and tedious though it may be, it's unavoidable.</p>
+"
+"456349","Why do so many sites discuss programming as opposed to describing the systems that they're trying to produce?","<p>There are a lot of sites out there that teach people how to build better software, but why is it that there are very few sites that actually give detailed descriptions of the domains that we (as programmers) are supposed to create? One can only construct so many inventory, accounting, and ERP systems before a pattern of common requirements start to emerge among the different types of systems. Logically speaking, if programmers spend so much time trying to create reusable components in their architectures, does that imply that they should have to have some reusable ""blueprint"" that describes the systems that they're supposed to create? In other words, it seems like the focus of software development has been too focused on ""how"" software should be built rather than to catalogue and accurately specify (with detailed requirements) ""what"" should be used in the first place.</p>
+
+<p>So my question is this: Has there been any work done to catalogue all the different types of system specifications into a single place, all on a single site? If lacking the proper requirements at the start of the project is one of the banes of software development, wouldn't it make more sense to be able to 'reuse' requirement specifications from previous systems of the same type that have already been written?</p>
+","<requirements>","2009-01-19 02:10:14","938","26","12","456407","<p>There's a site <a href=""http://databaseanswers.org/"" rel=""noreferrer"">Database Answers</a> that attempts to provide solutions for common database designs.  That's not the same as a complete solution like you are describing, but it is a step in the right direction.</p>
+
+<p>You comment ""[o]ne can only construct so many [...] systems before"" the commonality becomes obvious.  However, those who have constructed enough such systems to spot the commonality then attempt to benefit from it by creating their version of the common system, and then they sell it.  It is not (perceived to be) in their interest to give other people who might do the same thing a helping hand.</p>
+"
+"456349","Why do so many sites discuss programming as opposed to describing the systems that they're trying to produce?","<p>There are a lot of sites out there that teach people how to build better software, but why is it that there are very few sites that actually give detailed descriptions of the domains that we (as programmers) are supposed to create? One can only construct so many inventory, accounting, and ERP systems before a pattern of common requirements start to emerge among the different types of systems. Logically speaking, if programmers spend so much time trying to create reusable components in their architectures, does that imply that they should have to have some reusable ""blueprint"" that describes the systems that they're supposed to create? In other words, it seems like the focus of software development has been too focused on ""how"" software should be built rather than to catalogue and accurately specify (with detailed requirements) ""what"" should be used in the first place.</p>
+
+<p>So my question is this: Has there been any work done to catalogue all the different types of system specifications into a single place, all on a single site? If lacking the proper requirements at the start of the project is one of the banes of software development, wouldn't it make more sense to be able to 'reuse' requirement specifications from previous systems of the same type that have already been written?</p>
+","<requirements>","2009-01-19 02:10:14","938","26","12","456412","<p>It would be unsaleable. The first assertion you inevitably get from anyone distributing an RFQ for a system is: ""We aren't like other companies. Our requirements are unique."" (And the never really are.)</p>
+"
+"456349","Why do so many sites discuss programming as opposed to describing the systems that they're trying to produce?","<p>There are a lot of sites out there that teach people how to build better software, but why is it that there are very few sites that actually give detailed descriptions of the domains that we (as programmers) are supposed to create? One can only construct so many inventory, accounting, and ERP systems before a pattern of common requirements start to emerge among the different types of systems. Logically speaking, if programmers spend so much time trying to create reusable components in their architectures, does that imply that they should have to have some reusable ""blueprint"" that describes the systems that they're supposed to create? In other words, it seems like the focus of software development has been too focused on ""how"" software should be built rather than to catalogue and accurately specify (with detailed requirements) ""what"" should be used in the first place.</p>
+
+<p>So my question is this: Has there been any work done to catalogue all the different types of system specifications into a single place, all on a single site? If lacking the proper requirements at the start of the project is one of the banes of software development, wouldn't it make more sense to be able to 'reuse' requirement specifications from previous systems of the same type that have already been written?</p>
+","<requirements>","2009-01-19 02:10:14","938","26","12","456419","<p>If you are going to reuse the requirements you might as well reuse the code too. But on a lower level I think what you are looking for would be ""requirement patterns"", along the lines of ""programming patterns"".</p>
+
+<p>Now <a href=""http://www.microsoft.com/learning/en/us/Books/10808.aspx"" rel=""nofollow noreferrer"">here is a book</a> from Microsoft on the topic, but as with all domain patterns, the idea is that they should organically grow and fit the needs of the domain users and experts. If you want the true source of the idea check out the <a href=""http://www.patternlanguage.com/leveltwo/books.htm"" rel=""nofollow noreferrer"">seminal book on patterns</a>, although it's from Architecture and not programming, surprise surprise :)</p>
+"
+"456349","Why do so many sites discuss programming as opposed to describing the systems that they're trying to produce?","<p>There are a lot of sites out there that teach people how to build better software, but why is it that there are very few sites that actually give detailed descriptions of the domains that we (as programmers) are supposed to create? One can only construct so many inventory, accounting, and ERP systems before a pattern of common requirements start to emerge among the different types of systems. Logically speaking, if programmers spend so much time trying to create reusable components in their architectures, does that imply that they should have to have some reusable ""blueprint"" that describes the systems that they're supposed to create? In other words, it seems like the focus of software development has been too focused on ""how"" software should be built rather than to catalogue and accurately specify (with detailed requirements) ""what"" should be used in the first place.</p>
+
+<p>So my question is this: Has there been any work done to catalogue all the different types of system specifications into a single place, all on a single site? If lacking the proper requirements at the start of the project is one of the banes of software development, wouldn't it make more sense to be able to 'reuse' requirement specifications from previous systems of the same type that have already been written?</p>
+","<requirements>","2009-01-19 02:10:14","938","26","12","456424","<p>There are various efforts by governments to try and standardize data models to enable sharing between different agencies, but these have little to no adoption outside of where it's required.  In Canada, for example, we have <a href=""http://www.dss-snd.gc.ca/publication/en/chap/chap00503.html"" rel=""nofollow noreferrer"">CPSIN</a>.</p>
+"
+"456349","Why do so many sites discuss programming as opposed to describing the systems that they're trying to produce?","<p>There are a lot of sites out there that teach people how to build better software, but why is it that there are very few sites that actually give detailed descriptions of the domains that we (as programmers) are supposed to create? One can only construct so many inventory, accounting, and ERP systems before a pattern of common requirements start to emerge among the different types of systems. Logically speaking, if programmers spend so much time trying to create reusable components in their architectures, does that imply that they should have to have some reusable ""blueprint"" that describes the systems that they're supposed to create? In other words, it seems like the focus of software development has been too focused on ""how"" software should be built rather than to catalogue and accurately specify (with detailed requirements) ""what"" should be used in the first place.</p>
+
+<p>So my question is this: Has there been any work done to catalogue all the different types of system specifications into a single place, all on a single site? If lacking the proper requirements at the start of the project is one of the banes of software development, wouldn't it make more sense to be able to 'reuse' requirement specifications from previous systems of the same type that have already been written?</p>
+","<requirements>","2009-01-19 02:10:14","938","26","12","456484","<p>Check out the Data Model Resource Book by Len Silverston:</p>
+
+<p><a href=""https://rads.stackoverflow.com/amzn/click/com/0471380237"" rel=""nofollow noreferrer"" rel=""nofollow noreferrer"">http://www.amazon.com/Data-Model-Resource-Book-Vol/dp/0471380237/ref=pd_bbs_sr_1?ie=UTF8&amp;s=books&amp;qid=1232336996&amp;sr=8-1</a></p>
+
+<p>It approaches reusable design from the data model point of view, as opposed to end user requirements or OO designs.  However, I find that to be very useful - once you have a good grasp of the data model, you have a big jump on the requirements and the entities that will eventually be modeled as classes.</p>
+"
+"456349","Why do so many sites discuss programming as opposed to describing the systems that they're trying to produce?","<p>There are a lot of sites out there that teach people how to build better software, but why is it that there are very few sites that actually give detailed descriptions of the domains that we (as programmers) are supposed to create? One can only construct so many inventory, accounting, and ERP systems before a pattern of common requirements start to emerge among the different types of systems. Logically speaking, if programmers spend so much time trying to create reusable components in their architectures, does that imply that they should have to have some reusable ""blueprint"" that describes the systems that they're supposed to create? In other words, it seems like the focus of software development has been too focused on ""how"" software should be built rather than to catalogue and accurately specify (with detailed requirements) ""what"" should be used in the first place.</p>
+
+<p>So my question is this: Has there been any work done to catalogue all the different types of system specifications into a single place, all on a single site? If lacking the proper requirements at the start of the project is one of the banes of software development, wouldn't it make more sense to be able to 'reuse' requirement specifications from previous systems of the same type that have already been written?</p>
+","<requirements>","2009-01-19 02:10:14","938","26","12","456958","<p>In my experience where it falls apart is the Use Cases encompassed by the UI. I in fact have designed and built an inventory system that's been applied across a broad variety of organizations and industries (telecomms, food products, healthcare, electronics manufacturing and distribution, consumer products, apparel, aerospace, many others.) After the first half-dozen, a good data model emerged that has served with little variation (extension, but not variation) for all of them.</p>
+
+<p>But even within an industry, for any number of reasons (nature of the product, volume variations, average order size in and out, accounting requirements, employee motivation, etc. etc.) the way the work is done by real people varies hugely, for good reasons.</p>
+
+<p>Note that the examples above all seem to be about deeper abstraction levels - specifically data models - where we programmers can do it our way, to our benefit. The closer to the user we move, the more our interests need to become secondary to theirs.</p>
+
+<p>Worst-case example: Has anyone else noticed the pattern in employee-scheduling and workhour-reporting systems to show one week per screen, and multi-screen data entry forms?</p>
+"
+"456349","Why do so many sites discuss programming as opposed to describing the systems that they're trying to produce?","<p>There are a lot of sites out there that teach people how to build better software, but why is it that there are very few sites that actually give detailed descriptions of the domains that we (as programmers) are supposed to create? One can only construct so many inventory, accounting, and ERP systems before a pattern of common requirements start to emerge among the different types of systems. Logically speaking, if programmers spend so much time trying to create reusable components in their architectures, does that imply that they should have to have some reusable ""blueprint"" that describes the systems that they're supposed to create? In other words, it seems like the focus of software development has been too focused on ""how"" software should be built rather than to catalogue and accurately specify (with detailed requirements) ""what"" should be used in the first place.</p>
+
+<p>So my question is this: Has there been any work done to catalogue all the different types of system specifications into a single place, all on a single site? If lacking the proper requirements at the start of the project is one of the banes of software development, wouldn't it make more sense to be able to 'reuse' requirement specifications from previous systems of the same type that have already been written?</p>
+","<requirements>","2009-01-19 02:10:14","938","26","12","491364","<p>There was a huge ""Software Reuse"" movement back in the '80's and early '90's.  There was a sizable industry of people building and tuning catalogs of software components.  It was seen by many as the future of software.  A good overview is Will Tracz' ""Confessions of a Used Software Salesman""; google terms ""Brad Cox Software IC"", ""Martin Griss"". As I recall, victory was declared and everyone moved on to other problems.</p>
+
+<p>I see that Brad Cox's ""Planning the Software Industrial Revolution"" is Online:<br>
+<a href=""http://www.virtualschool.edu/cox/pub/PSIR/"" rel=""nofollow noreferrer""> http://www.virtualschool.edu/cox/pub/PSIR/
+</a></p>
+"
+"456349","Why do so many sites discuss programming as opposed to describing the systems that they're trying to produce?","<p>There are a lot of sites out there that teach people how to build better software, but why is it that there are very few sites that actually give detailed descriptions of the domains that we (as programmers) are supposed to create? One can only construct so many inventory, accounting, and ERP systems before a pattern of common requirements start to emerge among the different types of systems. Logically speaking, if programmers spend so much time trying to create reusable components in their architectures, does that imply that they should have to have some reusable ""blueprint"" that describes the systems that they're supposed to create? In other words, it seems like the focus of software development has been too focused on ""how"" software should be built rather than to catalogue and accurately specify (with detailed requirements) ""what"" should be used in the first place.</p>
+
+<p>So my question is this: Has there been any work done to catalogue all the different types of system specifications into a single place, all on a single site? If lacking the proper requirements at the start of the project is one of the banes of software development, wouldn't it make more sense to be able to 'reuse' requirement specifications from previous systems of the same type that have already been written?</p>
+","<requirements>","2009-01-19 02:10:14","938","26","12","491414","<p>You might want to check out Martin Fowler's <a href=""https://rads.stackoverflow.com/amzn/click/com/0321127420"" rel=""nofollow noreferrer"" rel=""nofollow noreferrer"">Patterns of Enterprise Application Architecture</a> - while not specs, it seems to be about the sort of things you are after.</p>
+
+<p>Disclaimer: I haven't read it myself, I only know of its existence. </p>
+"
+"456349","Why do so many sites discuss programming as opposed to describing the systems that they're trying to produce?","<p>There are a lot of sites out there that teach people how to build better software, but why is it that there are very few sites that actually give detailed descriptions of the domains that we (as programmers) are supposed to create? One can only construct so many inventory, accounting, and ERP systems before a pattern of common requirements start to emerge among the different types of systems. Logically speaking, if programmers spend so much time trying to create reusable components in their architectures, does that imply that they should have to have some reusable ""blueprint"" that describes the systems that they're supposed to create? In other words, it seems like the focus of software development has been too focused on ""how"" software should be built rather than to catalogue and accurately specify (with detailed requirements) ""what"" should be used in the first place.</p>
+
+<p>So my question is this: Has there been any work done to catalogue all the different types of system specifications into a single place, all on a single site? If lacking the proper requirements at the start of the project is one of the banes of software development, wouldn't it make more sense to be able to 'reuse' requirement specifications from previous systems of the same type that have already been written?</p>
+","<requirements>","2009-01-19 02:10:14","938","26","12","3924506","<p>It would be nice to have a central repository of code patterns, all variety of languages. Then we can both show off our amazing code, make it easier to learn from each other, and would also improve overall code quality by having good examples of providing xyz service/product.</p>
+
+<p>I mean, how many of our coding projects that unique that no one else has ever done it?</p>
+
+<p>My rough guess is that 98% of our work is stuff that has been done by other people in lots of different companies, similar industries, similar functional needs. </p>
+
+<p>I mean this is the kind of thing that stackoverflow should get behind. To not only share and talk about problems, but to learn from each other's code as well.</p>
+"
+"409252","Why do safety requirements like to discourage use of AI?","<p>Seems that requirements on safety do not seem to like systems that use AI for safety-related requirements (particularly where large potential risks of destruction/death are involved). Can anyone suggest <strong>why</strong>? I always thought that, provided you program your logic properly, the more intelligence you put in an algorithm, the more likely this algorithm is capable of preventing a dangerous situation. Are things different in practice?</p>
+","<artificial-intelligence><requirements>","2009-01-03 15:55:57","653","4","10","409257","<p>Most AI algorithms are <em>fuzzy</em> -- typically learning as they go along. For items that are of critical safety importance what you want is deterministic.  These algorithms are easier to prove correct, which is essential for many safety critical applications.</p>
+"
+"409252","Why do safety requirements like to discourage use of AI?","<p>Seems that requirements on safety do not seem to like systems that use AI for safety-related requirements (particularly where large potential risks of destruction/death are involved). Can anyone suggest <strong>why</strong>? I always thought that, provided you program your logic properly, the more intelligence you put in an algorithm, the more likely this algorithm is capable of preventing a dangerous situation. Are things different in practice?</p>
+","<artificial-intelligence><requirements>","2009-01-03 15:55:57","653","4","10","409261","<p>I would think that the reason is twofold.</p>
+
+<p>First it is possible that the AI will make unpredictable decisions.  Granted, they can be beneficial, but when talking about safety-concerns, you can't take risks like that, especially if people's lives are on the line.</p>
+
+<p>The second is that the ""reasoning"" behind the decisions can't always be traced (sometimes there is a random element used for generating results with an AI) and when something goes wrong, not having the ability to determine ""why"" (in a very precise manner) becomes a liability.</p>
+
+<p>In the end, it comes down to accountability and reliability.</p>
+"
+"409252","Why do safety requirements like to discourage use of AI?","<p>Seems that requirements on safety do not seem to like systems that use AI for safety-related requirements (particularly where large potential risks of destruction/death are involved). Can anyone suggest <strong>why</strong>? I always thought that, provided you program your logic properly, the more intelligence you put in an algorithm, the more likely this algorithm is capable of preventing a dangerous situation. Are things different in practice?</p>
+","<artificial-intelligence><requirements>","2009-01-03 15:55:57","653","4","10","409262","<p>I would guess that AI systems are generally considered more complex. Complexity is usually a bad thing, especially when it relates to ""magic"" which is how some people perceive AI systems.</p>
+
+<p>That's not to say that the alternative is necessarily simpler (or better).</p>
+
+<p>When we've done control systems coding, we've had to show trace tables for every single code path, and permutation of inputs. This was required to insure that we didn't put equipment into a dangerous state (for employees or infrastructure), and to ""prove"" that the programs did what they were supposed to do.</p>
+
+<p>That'd be awfully tricky to do if the program were fuzzy and non-deterministic, as @tvanfosson indicated. I think you should accept that answer.</p>
+"
+"409252","Why do safety requirements like to discourage use of AI?","<p>Seems that requirements on safety do not seem to like systems that use AI for safety-related requirements (particularly where large potential risks of destruction/death are involved). Can anyone suggest <strong>why</strong>? I always thought that, provided you program your logic properly, the more intelligence you put in an algorithm, the more likely this algorithm is capable of preventing a dangerous situation. Are things different in practice?</p>
+","<artificial-intelligence><requirements>","2009-01-03 15:55:57","653","4","10","409277","<p>The more complex a system is, the harder it is to test. 
+And the more crucial a system is, the more important it becomes to have 100% comprehensive tests. </p>
+
+<p>Therefore for crucial systems people prefer to have sub-optimal features, that can be tested, and rely on human interaction for complex decision making.</p>
+"
+"409252","Why do safety requirements like to discourage use of AI?","<p>Seems that requirements on safety do not seem to like systems that use AI for safety-related requirements (particularly where large potential risks of destruction/death are involved). Can anyone suggest <strong>why</strong>? I always thought that, provided you program your logic properly, the more intelligence you put in an algorithm, the more likely this algorithm is capable of preventing a dangerous situation. Are things different in practice?</p>
+","<artificial-intelligence><requirements>","2009-01-03 15:55:57","653","4","10","409283","<p>The key statement is ""provided you program your logic properly"". Well, <strong>how</strong> do you ""provide"" that? Experience shows that most programs are chock full of bugs. </p>
+
+<p>The only way to guarantee that there are no bugs would be formal verification, but that is practically infeasible for all but the most primitively simple systems, and (worse) is usually done on specifications rather than code, so you still don't know of the code correctly implements your spec after you've proven the spec to be flawless.</p>
+"
+"409252","Why do safety requirements like to discourage use of AI?","<p>Seems that requirements on safety do not seem to like systems that use AI for safety-related requirements (particularly where large potential risks of destruction/death are involved). Can anyone suggest <strong>why</strong>? I always thought that, provided you program your logic properly, the more intelligence you put in an algorithm, the more likely this algorithm is capable of preventing a dangerous situation. Are things different in practice?</p>
+","<artificial-intelligence><requirements>","2009-01-03 15:55:57","653","4","10","409314","<p>From a safety standpoint, one often is concerned with guaranteed predictability/determinism of behavior and rapid response time.  While it's possible to do either or both with AI-style programming techniques, as a system's control logic becomes more complex it's harder to provide convincing arguments about how the system will behave (convincing enough to satisfy an auditor).</p>
+"
+"409252","Why do safety requirements like to discourage use of AI?","<p>Seems that requirements on safety do not seem to like systems that use AI for safety-related requirements (particularly where large potential risks of destruction/death are involved). Can anyone suggest <strong>why</strong>? I always thought that, provided you program your logic properly, the more intelligence you put in an algorithm, the more likely this algorithm is capable of preventing a dangerous situation. Are things different in practice?</p>
+","<artificial-intelligence><requirements>","2009-01-03 15:55:57","653","4","10","409427","<p>I think that is because AI is very hard to understand and that becomes impossible to maintain.</p>
+
+<p>Even if a AI program is considered fuzzy, or that it ""learns"" by the moment it is released, it is very well tested to all know cases(and it already learned from it) before its even finished. Most of the cases this ""learning"" will change some ""thresholds"" or weights in the program and after that, it is very hard to really understand and maintain that code, even for the creators. </p>
+
+<p>This have been changing in the last 30 years by creating languages easier to understand for mathematicians, making it easier for them to test, and deliver new pseudo-code around the problem(like mat lab AI toolbox)</p>
+"
+"409252","Why do safety requirements like to discourage use of AI?","<p>Seems that requirements on safety do not seem to like systems that use AI for safety-related requirements (particularly where large potential risks of destruction/death are involved). Can anyone suggest <strong>why</strong>? I always thought that, provided you program your logic properly, the more intelligence you put in an algorithm, the more likely this algorithm is capable of preventing a dangerous situation. Are things different in practice?</p>
+","<artificial-intelligence><requirements>","2009-01-03 15:55:57","653","4","10","500567","<p>There are enough ways that ordinary algorithms, when shoddily designed and tested, can wind up killing people. If you haven't read about it, you should look up the case of <a href=""http://courses.cs.vt.edu/~cs3604/lib/Therac_25/Therac_1.html"" rel=""nofollow noreferrer"">Therac 25</a>. This was a system where the behaviour was supposed to be completely deterministic, and things still went horribly, horribly wrong. Imagine if it were trying to reason ""intelligently"", too.</p>
+"
+"409252","Why do safety requirements like to discourage use of AI?","<p>Seems that requirements on safety do not seem to like systems that use AI for safety-related requirements (particularly where large potential risks of destruction/death are involved). Can anyone suggest <strong>why</strong>? I always thought that, provided you program your logic properly, the more intelligence you put in an algorithm, the more likely this algorithm is capable of preventing a dangerous situation. Are things different in practice?</p>
+","<artificial-intelligence><requirements>","2009-01-03 15:55:57","653","4","10","15180187","<p>As there is no accepted definition of AI, the question shall be more specific.</p>
+
+<p>My answer is on adaptive algorithms merely employing parameter estimation - a kind of learning - to improve the safety of the output information. Even this is not welcome in functional safety although it may seem that the behaviour of a proposed algorithm is not only deterministic (all computer programs are) but also easy to determine.</p>
+
+<p>Be prepared for the assessor asking you to demonstrate test reports covering all combinations of input data and failure modes. Your algorithm being adaptive means it depends not only on current input values but on many or all of the earlier values. You know that a full test coverage is impossible within the age of the universe.</p>
+
+<p>One way to score is showing that previously accepted simpler algorithms (state of the art) are not safe. This shall be easy if you know your problem space (if not, keep away from AI).</p>
+
+<p>Another possibility may exist for your problem: a compelling monitoring function indicating whether the parameter is estimated accurately.</p>
+"
+"409252","Why do safety requirements like to discourage use of AI?","<p>Seems that requirements on safety do not seem to like systems that use AI for safety-related requirements (particularly where large potential risks of destruction/death are involved). Can anyone suggest <strong>why</strong>? I always thought that, provided you program your logic properly, the more intelligence you put in an algorithm, the more likely this algorithm is capable of preventing a dangerous situation. Are things different in practice?</p>
+","<artificial-intelligence><requirements>","2009-01-03 15:55:57","653","4","10","15213970","<p>""Ordinary algorithms"" for a complex problem space tend to be arkward. On the other hand, some ""intelligent"" algorithms have a simple structure. This is especially true for applications of Bayesian inference. You just have to know the likelihood function(s) for your data (plural applies if the data separates into statistically independent subsets).</p>
+
+<p>Likelihood functions can be tested. If the test cannot cover the tails far enough to reach the required confidence level, just add more data, for example from another sensor. The structure of your algorithm will not change.</p>
+
+<p>A drawback is/was the CPU performance required for Bayesian inference.</p>
+
+<p>Besides, mentioning Therac 25 is not helpful, since <em>no algorithm at all</em> was involved, just multitasking spaghetti code. Citing the authors, ""[the] accidents were fairly unique in having software coding errors involved -- most computer-related accidents have not involved coding errors but rather errors in the software requirements such as omissions and mishandled environmental conditions and system states.""</p>
+"
+"398586","How to determine minimum system requirements","<p>How do you decide what the minimum system requirements are for a Windows application? (OS, RAM, HD, CPU). I usually go with my gut, but I'd like to be able to back that up with something.</p>
+","<windows><deployment><requirements>","2008-12-29 20:38:51","5986","10","2","398594","<p>Your minimum system requirements are the highest requirements of the set of system requirements of your dependencies.</p>
+"
+"398586","How to determine minimum system requirements","<p>How do you decide what the minimum system requirements are for a Windows application? (OS, RAM, HD, CPU). I usually go with my gut, but I'd like to be able to back that up with something.</p>
+","<windows><deployment><requirements>","2008-12-29 20:38:51","5986","10","2","398595","<blockquote>
+  <p>On the same note, are there tools
+  available to artifically limit CPU
+  speed and RAM? I'd like to be able to
+  slow a test computer down, rather than
+  acquire a system with an antequated
+  CPU.</p>
+</blockquote>
+
+<p>The second part of your question is answered in great detail <a href=""https://stackoverflow.com/questions/284051/emulate-old-pc#284108"">here</a>.</p>
+"
+"379478","Whats the best way to determine the hardware requirements for an application","<p>What methods do you use to determine what kind of hardware you need for a server?</p>
+
+<p>I often find it very hard to predict what kind of hardware you will need for a web based application with a database.</p>
+
+<p>Do you have any good methods or recommendations on how to best pick hardware to use?</p>
+","<web-applications><hardware><requirements>","2008-12-18 22:05:04","20426","20","4","379502","<p>It really depends on your web application demands and traffic expectations.</p>
+
+<p><strong>Very few websites will need more than one reasonable dedicated server within the first months.</strong> And if you do, then you can probably afford to buy more hardware ;)</p>
+"
+"379478","Whats the best way to determine the hardware requirements for an application","<p>What methods do you use to determine what kind of hardware you need for a server?</p>
+
+<p>I often find it very hard to predict what kind of hardware you will need for a web based application with a database.</p>
+
+<p>Do you have any good methods or recommendations on how to best pick hardware to use?</p>
+","<web-applications><hardware><requirements>","2008-12-18 22:05:04","20426","20","4","379524","<p>I guess that your web app is not a critical business application as you said ""a server"" and ""a database"" otherwise you should perhaps look for some means of redundancy ?</p>
+
+<p>At work we have some guidelines about the hardware, and the latest suggestion is that the server should be 64 bits as SharePoint 14 looks like a 64 bits only version. </p>
+
+<p>If you can afford it I would recommend that the SQL server should be 64 bits as most people agree that adding more RAM (above 4 Gb) really pays off.</p>
+"
+"379478","Whats the best way to determine the hardware requirements for an application","<p>What methods do you use to determine what kind of hardware you need for a server?</p>
+
+<p>I often find it very hard to predict what kind of hardware you will need for a web based application with a database.</p>
+
+<p>Do you have any good methods or recommendations on how to best pick hardware to use?</p>
+","<web-applications><hardware><requirements>","2008-12-18 22:05:04","20426","20","4","379543","<p>This is sort of the basic question of capacity planning.  You start by defining a <em>workload model</em>, which describes what you expect to get in terms of traffic.  This can be as simple as ""I expect 20 page hits a minute maximum.""</p>
+
+<p>Then you need to think about burst loads.  Failing any other data, you can assume that interarrival times are exponentially distributed, which means that if you have a page request at time <em>t<sub>0</sub></em>, you're as likely to have the next arrival <em>t<sub>next</sub></em> a very short time after <em>t<sub>0</sub></em> as a long time.  (That's a gross oversimplification, but will do for a one-page answer.)</p>
+
+<p>So let's say the average interarrival time is &lambda;.  because the time distribution is exponential, we know that we can approximate the interarrival time distribution with a normal, with one standard deviation (1&sigma;) equal to &radic;&lambda;.  So, we know that</p>
+
+<ul>
+<li>about 32 percent of the time, two
+pages will be requested less that
+&lambda;- &radic;&lambda; seconds
+apart.</li>
+<li>about 5 percent of the time, two
+pages will be requested less that
+&lambda;- 2&radic;&lambda; seconds
+apart.</li>
+<li>less than 1 percent of the time, two
+pages will be requested less that
+&lambda;- 3&radic;&lambda; seconds
+apart.</li>
+</ul>
+
+<p>Decide what you're willing to accept, and test to make sure your web system can sustain that rate.</p>
+"
+"379478","Whats the best way to determine the hardware requirements for an application","<p>What methods do you use to determine what kind of hardware you need for a server?</p>
+
+<p>I often find it very hard to predict what kind of hardware you will need for a web based application with a database.</p>
+
+<p>Do you have any good methods or recommendations on how to best pick hardware to use?</p>
+","<web-applications><hardware><requirements>","2008-12-18 22:05:04","20426","20","4","379851","<p>To add to what Charlie says, once you have a workload model you can feed this into a simulation of your system to determine the horsepower you need to satisfy that load. There are some tools that can do this sort of simulation:</p>
+
+<ul>
+<li><a href=""http://www.hyperformix.com/products/performance-optimizer"" rel=""nofollow noreferrer"">Hyperformix</a></li>
+<li><a href=""http://simpy.sourceforge.net/"" rel=""nofollow noreferrer"">SimPy</a></li>
+<li><a href=""http://en.wikipedia.org/wiki/List_of_computer_simulation_software"" rel=""nofollow noreferrer"">WikiPedia list of simulation tools</a></li>
+</ul>
+
+<p>This stuff isn't easy, and the commercial tools will cost ya. </p>
+
+<p>You could also try looking for a benchmark that's close to your expected load and see what systems give you the performance you're looking for. The <a href=""http://www.tpc.org/"" rel=""nofollow noreferrer"">TPC benchmarks</a> would be a good place to start.</p>
+"
+"378856","User stories vs use cases","<p>Are use cases just multiple user stories??</p>
+
+<p>What are the benefits of using user stories over use cases.. and vice-versa... When to use one over other... 
+Does all agile methodologies uses user stories??</p>
+","<requirements><user-stories><use-case>","2008-12-18 19:07:36","6991","14","6","378871","<p>When it comes down to it ""agile"" is just a label, and people disagree over exactly what it means. Similarly people call very different things ""use cases.""</p>
+
+<p>In my experience the primary difference between the two is that a user story is focused on the user, and is usually shorter and less formal - ideally, it should easily fit on a postcard. It probably doesn't give details of error handling etc.</p>
+
+<p>Use cases <em>can</em> be much more formal (although some people write them informally too) - they focus on every interaction with the system, and may well go into more detail about several different systems/actors/etc within the same use case.</p>
+
+<p>That's just my experience though - chances are everyone will have used these tools in different ways. I wouldn't get too hung up about labels - just use what works for your project.</p>
+"
+"378856","User stories vs use cases","<p>Are use cases just multiple user stories??</p>
+
+<p>What are the benefits of using user stories over use cases.. and vice-versa... When to use one over other... 
+Does all agile methodologies uses user stories??</p>
+","<requirements><user-stories><use-case>","2008-12-18 19:07:36","6991","14","6","378879","<p>You can think of a usecase as a user story, but not the other way around. A usecase will cover multiple ""endings"" to the story, special requirements (e.g. form fields must be entered in format xyz, and show error message 123 if the user enters a field in the wrong format). Also, a usecase can include additional references to external documents, such as security guidelines.</p>
+"
+"378856","User stories vs use cases","<p>Are use cases just multiple user stories??</p>
+
+<p>What are the benefits of using user stories over use cases.. and vice-versa... When to use one over other... 
+Does all agile methodologies uses user stories??</p>
+","<requirements><user-stories><use-case>","2008-12-18 19:07:36","6991","14","6","378882","<p>In one word, no.</p>
+
+<p>Use Cases are typically detailed specifications laying out how some particular piece of functionality is going to work, or how a specific user is going to utilize the system. It typically is in the voice of a specific user (or Actor) and is fairly self-contained.</p>
+
+<p>A user story on the other hand is ""an invitation for discussion"". It is typically one or two sentences. <a href=""http://www.extremeprogramming.org/rules/userstories.html"" rel=""nofollow noreferrer"">Here</a> is one good resource for that. And Mike Cohn's <a href=""http://www.mountaingoatsoftware.com/book/2"" rel=""nofollow noreferrer"">User Stories Applied</a> is well worth it.</p>
+
+<p>The typical syntax is ""As a &lt;user> I need &lt;functionality> to achieve &lt;business value>"", or ""To achieve &lt;business value> as a &lt;user> I need &lt;functionality>"" which drives home the value of the story.</p>
+
+<p>User stories are <em>not</em> meant to be stand-alone, but meant to invite discussion of the story between the developer and the customer (or customer proxy).</p>
+"
+"378856","User stories vs use cases","<p>Are use cases just multiple user stories??</p>
+
+<p>What are the benefits of using user stories over use cases.. and vice-versa... When to use one over other... 
+Does all agile methodologies uses user stories??</p>
+","<requirements><user-stories><use-case>","2008-12-18 19:07:36","6991","14","6","378912","<p>Actually, the original use cases (see <a href=""https://rads.stackoverflow.com/amzn/click/com/0201544350"" rel=""noreferrer"" rel=""nofollow noreferrer"">Jacobson's OOSE</a>) were pretty lightweight, much as user stories are now.  Over time, they evolved until a common format for ""use cases"" now is a complicated document with inputs, outputs, inheritance, uses relationships, pseudocode, etc.  Programmers, in general, try to convert everything into programming.</p>
+
+<p>In any case, the attempt to defined what distinguishes a ""use case"" from a ""user story"" fro a ""scenario"" is pretty futile, as it's hard to find two authorities who agree.\</p>
+
+<p>Personally, I find the pattern ""[Actor] [verbs] [noun] to get [business value]"" helpful.  If it gets over about a paragraph of text, it may be too big.</p>
+"
+"378856","User stories vs use cases","<p>Are use cases just multiple user stories??</p>
+
+<p>What are the benefits of using user stories over use cases.. and vice-versa... When to use one over other... 
+Does all agile methodologies uses user stories??</p>
+","<requirements><user-stories><use-case>","2008-12-18 19:07:36","6991","14","6","378996","<p>Use cases aren't compilations of user stories.</p>
+
+<p>User stories are generally much simpler than use cases. I think use cases try to cover absolutely everything to do with the behaviour of some aspect of the system. That is, all behaviours, all error paths and all exception handling.</p>
+
+<p>The recommended template for a user is:</p>
+
+<blockquote>
+  <p>As a (role) I want (something) so that (benefit)</p>
+</blockquote>
+
+<p>(Thanks Mike Cohn for providing this simple template)</p>
+
+<p>Descriptions of behaviour expressed like this are more agile.</p>
+
+<p>This sort of template lets you describe behaviour using different levels of detail. For example:</p>
+
+<ol>
+<li>for those stories being implemented in a much later sprint, you can describe behaviour in a high level sort of way, e.g. as an ops team member I want to monitor the system remotely so that I can determine system health while on the road.</li>
+<li>for those stories being implemented in the next sprint, you can describe behaviour is a slightly more detailed way, e.g. as an ops team member I want to have a dedicated ops only login so that I can check system health.</li>
+<li>for those stories being implemented in the current sprint, you can describe behaviour in a highly detailed way, e.g. as an ops team member I want to have a web interface so that I can check current status of the ingest ftp server.</li>
+</ol>
+
+<p>IMHO Use cases are much more carved in stone! And hence can be a problem to update after the initial version.</p>
+
+<p>HTH</p>
+
+<p>cheers,</p>
+
+<p>Rob</p>
+"
+"378856","User stories vs use cases","<p>Are use cases just multiple user stories??</p>
+
+<p>What are the benefits of using user stories over use cases.. and vice-versa... When to use one over other... 
+Does all agile methodologies uses user stories??</p>
+","<requirements><user-stories><use-case>","2008-12-18 19:07:36","6991","14","6","56598772","<p><strong>User Stories</strong> is a tool used in Agile development to make sure you create the product your user really needs. </p>
+
+<ul>
+<li>It describes rather <strong>why</strong> you should make this or that feature instead of <strong>HOW</strong> or <strong>WHAT feature</strong>. </li>
+<li>From my personal experience, it's a great way to balance the client's and developer's vision to create a better product.</li>
+</ul>
+
+<p>Unlike US a<strong>Use Case</strong> focuses on WHO uses your product. Here is the difference.</p>
+
+<p>I'd say there is no other such instrument for an Agile developer as User Stories. If you want to learn how to write them successfully, check out <a href=""https://magora-systems.com/how-to-write-great-user-stories/"" rel=""nofollow noreferrer"">this</a> post. </p>
+"

@@ -12,11 +12,11 @@ final data set: merged_adf_df_with_lda_topic1.csv
 Link to process flow chart: https://miro.com/app/board/uXjVMIxaFOo=/?share_link_id=288843918581
 
 ### Most Relevant Notebooks
-* 01adf_query_whole_data_set.ipynb (Generates the preprocesses the data from Stack Overflow)
-* 02adf_query_keyword_filter.ipynb (Filters the data, performs Latent Dirichilet Allocation)
-* 03_svm.ipynb (validates most relevant topic found through LDA using Support Vector Machines)
-* 04_logistic_regression_count_vectorizer.ipynb (validates most relevant topic found through LDA using Logistic Regression)
-* 05_RNN.ipynb (validates most relevant topic found through LDA using RNN)
+* 1adf_query_whole_data_set.ipynb (Generates the preprocesses the data from Stack Overflow)
+* 2adf_query_keyword_filter.ipynb (Filters the data, performs Latent Dirichilet Allocation)
+* 01_svm.ipynb (validates most relevant topic found through LDA using Support Vector Machines)
+* 02_logistic_regression_count_vectorizer.ipynb (validates most relevant topic found through LDA using Logistic Regression)
+* 03_RNN.ipynb (validates most relevant topic found through LDA using RNN)
 
 ## Abstract
 This project is a collaboration between an experienced human text data analyst, gpt4, as well as unsupervised and supervised machine learning algorithms. The goal of this project is to find out how these four "collaborators" can find new ways of analyzing and interpreting large amounts of text data. This project employs Natural Language Processing (NLP) to analyze questions and answers from Stack Overflow concerning Azure Data Factory (ADF). GPT4 is then prompted to derive functional and non-functional requirements for data management within ADF from the NLP results. GPT4 also identifies keywords representing these requirements. These keywords can be used as filters to further analyze the identified requirements.  
@@ -58,6 +58,13 @@ The data analysis has resulted in a final data set where each row is either assi
 
 GPT4 proven to be a very valuable "coach" for setting up code architecture and for generating code. This process was extremely agile and allowed to test out various NLP and machine learning techniques while ultimately  settling for those most suitable for this project. Using generated code also allowed for more queries to identify relevant keywords for the creation of sub data sets. Identifying the most relevant keywords themselves, however, required an experienced human text data analyst. When interpreting the results of the Latent Dirichilet Allocation, spaCy extractions and Vader Sentiment Analysis GPT4 was able to derive interpretations which would not have been obvious to a single human being. GPT4 clearly allowed me to operate outside of my initial knowledge base and to draw conclusions outside of my field of expertise (e.g. specifics on Azure Data Factory). The results of this project can easily be transformed into learning material for further learning on NLP and Machine Learning.
 
-### About me
+### Personal Project Background
 
-I am a social scientist who graduated in 2008. My diploma thesis included conducting 24 in depths interviews which I manually coded using microsoft access, pen and paper. Using a methodology based on grounded theory I derived themes, topics and further insghts from the interview transcripts. In 2009 I spent six very intensive months manually coding transcripts of interviews concerning the development of a corporate sustainability strategy. I used Microsoft word for this project. Fast forward to 2018-2022 I intensively researched attributes and keywords in order to write product and category descriptions for e-commerce. All of these experiences taught me to find stories, themes, topics, entities, labels and much more in large text bodies or in keyword sets. In 2022 I enrolled in a data science bootcamp laying a foundation for my machine learning journey. I am particularly interested in how to combine human expertise with classical machine learning and Natural Language Generartion.
+This project is many things in one: A combination of mixed data analysis methods, content management techniques, NLP and NLG. I could continue the list but most importantly, it is my first ever machine learning project. 
+
+I incorporated many trains of thoughts and practical experiences some of which go way back to my social science diploma thesis in 2008. Back then I conducted 24 in depths interviews which I manually coded, analyzed and interpreted using microsoft access, pen and paper. Employing a methodology based on grounded theory I derived themes, topics and further insights from the interview transcripts. 
+
+In 2009 I spent six very intensive months manually coding transcripts of interviews concerning the development of a corporate sustainability strategy. I used Microsoft word for this project. 
+Fast forward to 2018-2023 I intensively worked with attributes, keywords and data management systems in order to write product and category descriptions for e-commerce. All of these experiences taught me to find stories, themes, topics, entities, labels and much more in large text bodies or keyword sets. 
+
+In 2022 I enrolled in a data science bootcamp laying a foundation for my machine learning journey. My particular interested lies in combining human expertise and mixed methods with classical machine learning and Natural Language Generation.
