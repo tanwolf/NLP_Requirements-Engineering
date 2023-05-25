@@ -1,7 +1,7 @@
 # Applying NLP in Requirements Engineering: Exploring Data Management Challenges in Azure Data Factory
 
 ## Abstract
--This project is a collaboration between an experienced human text data analyst, gpt4, as well as unsupervised and supervised machine learning algorithms. The goal of this project is to find out how these four "collaborators" can find new ways of analyzing and interpreting large amounts of text data. This project employs Natural Language Processing (NLP) to analyze questions and answers from StackOverflow concerning Azure Data Factory (ADF). GPT4 is then prompted to derive functional and non-functional requirements for data management within ADF from the NLP results. GPT4 also identifies categories and keywords representing these requirements._ 
+_This project is a collaboration between an experienced human text data analyst, gpt4, as well as unsupervised and supervised machine learning algorithms. The goal of this project is to find out how these four "collaborators" can find new ways of analyzing and interpreting large amounts of text data. This project employs Natural Language Processing (NLP) to analyze questions and answers from StackOverflow concerning Azure Data Factory (ADF). GPT4 is then prompted to derive functional and non-functional requirements for data management within ADF from the NLP results. GPT4 also identifies categories and keywords representing these requirements._ 
 
 In conclusion the collaboration between the four "collaborators" was successful. It highlighted, however, that an initial human contribution to keyword analysis is key when designing and filtering the data set.
 
