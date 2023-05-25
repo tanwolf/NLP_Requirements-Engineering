@@ -7,6 +7,7 @@ In conclusion the collaboration between the four "collaborators" was successful.
 
 Link to flow chart: https://miro.com/app/board/uXjVMIxaFOo=/?share_link_id=288843918581
 
+
 ### Exerpts from the Project:
 > **GPT4 Prompt:** Considering the results of the LDA, the Vader Sentiment Analysis and the spaCy extractions as well as the Certified Professional for Requirements Engineering (CPRE) certification: Which functional and non-functional requirements are expressed by the users on StackOverflow concerning Azure Data Factory? List the requirements for each of the LDA Topics.
 
@@ -71,7 +72,6 @@ final data set: merged_adf_df_with_lda_topic1.csv
 * 03_RNN.ipynb (validates most relevant topic found through LDA using RNN)
 
 ### Personal Project Background
-
 This project is many things in one: A combination of mixed data analysis methods, content management techniques, NLP and NLG. I could continue the list but most importantly, it is my first ever machine learning project. 
 
 I incorporated many trains of thoughts and practical experiences some of which go way back to my social science diploma thesis in 2008. Back then I conducted 24 in depths interviews which I manually coded, analyzed and interpreted using microsoft access, pen and paper. Employing a methodology based on grounded theory I derived themes, topics and further insights from the interview transcripts. 
