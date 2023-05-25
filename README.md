@@ -54,15 +54,13 @@ GPT4 has proven to be a very valuable "coach" and generator for code architectur
 ### Limitations:
 This project was created for NLP and NLG training purposes. There is room for improvements concerning the virtual environment, the code structure and the directory architecture. Significant improvements could, for example, be made to ensure consistent results from spaCy entity recognition and to enhance the reproducibility of the virtual environment. In addition, the identified requirements have not been validated by further requirements engineering techniques e.g. stakeholder interviews, surveys, and questionanires. Overall, further steps in requirement engineering should be taken from the human perspective: "How to best enable the flow within Azure Data Factory?"   
 
-**Source data:** 
-StackOverflow question and answers concerning Azure Data Factory (ADF), lengths: 8547 rows
+### Data
+**Source:** 
+StackOverflow question and answers concerning Azure Data Factory (ADF), lengths: 8547 rows, StackExchange Inc. (2023). StackExchange Data Explorer [SQL query on StackOverflow data]. Available at: https://data.stackexchange.com/stackoverflow/query/new
 
-**Data Source:**
-StackExchange Inc. (2023). StackExchange Data Explorer [SQL query on StackOverflow data]. Available at: https://data.stackexchange.com/stackoverflow/query/new
+**Generated Schema:** https://dbdiagram.io/d/6448f5b26b3194705139098b
 
-**Link to generated schema:** https://dbdiagram.io/d/6448f5b26b3194705139098b
-
-**final data set:** merged_adf_df_with_lda_topic1.csv
+**Final Data Set:** merged_adf_df_with_lda_topic1.csv
 
 **Most Relevant Notebooks**
 * 1adf_query_whole_data_set.ipynb (Generates the preprocesses the data from StackOverflow)
