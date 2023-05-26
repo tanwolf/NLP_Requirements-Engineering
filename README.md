@@ -63,8 +63,8 @@ StackOverflow question and answers concerning Azure Data Factory (ADF), lengths:
 **Final Data Set:** merged_adf_df_with_lda_topic1.csv
 
 ## Most Relevant Notebooks
-* 1adf_query_whole_data_set.ipynb (Generates the preprocesses the data from StackOverflow)
-* 2adf_query_keyword_filter.ipynb (Filters the data, performs Latent Dirichilet Allocation)
+* 1adf_query_whole_data_set.ipynb (Generates and preprocesses the data from StackOverflow)
+* **2adf_query_keyword_filter.ipynb** (Filters final data set, performs NLP and GPT4 operations)
 * 01_svm.ipynb (validates most relevant topic found through LDA using Support Vector Machines)
 * 02_logistic_regression_count_vectorizer.ipynb (validates most relevant topic found through LDA using Logistic Regression)
 * 03_RNN.ipynb (validates most relevant topic found through LDA using RNN)
